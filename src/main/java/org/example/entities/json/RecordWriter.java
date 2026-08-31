@@ -1,4 +1,4 @@
-package org.example.enteties.json;
+package org.example.entities.json;
 
 import jakarta.json.bind.*;
 

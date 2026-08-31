@@ -5,7 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.example.repos.ItemRepos;
-import org.example.enteties.Item;
+import org.example.entities.Item;
 
 import java.math.BigDecimal;
 

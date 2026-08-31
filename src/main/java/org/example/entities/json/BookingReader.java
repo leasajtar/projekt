@@ -1,9 +1,9 @@
-package org.example.enteties.json;
+package org.example.entities.json;
 
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.json.bind.JsonbConfig;
-import org.example.enteties.Booking;
+import org.example.entities.Booking;
 
 import java.io.File;
 import java.nio.file.Files;

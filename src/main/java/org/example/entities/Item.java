@@ -1,4 +1,4 @@
-package org.example.enteties;
+package org.example.entities;
 
 import jakarta.json.bind.annotation.JsonbProperty;
 import org.slf4j.Logger;

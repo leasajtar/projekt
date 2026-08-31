@@ -16,7 +16,7 @@ org.h2.message.DbException: Wrong user name or password [28000-240]
 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
 	at org.example.projekt/org.example.utility.DbUtil.getConnection(DbUtil.java:18)
 	at org.example.projekt/org.example.utility.DbUtil.init(DbUtil.java:22)
-	at org.example.projekt/org.example.screen.BookingApp.start(BookingApp.java:17)
+	at org.example.projekt/org.example.app.BookingApp.start(BookingApp.java:17)
 	at javafx.graphics@21.0.6/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839)
 	at javafx.graphics@21.0.6/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483)
 	at javafx.graphics@21.0.6/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456)

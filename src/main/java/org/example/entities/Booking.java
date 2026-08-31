@@ -1,4 +1,4 @@
-package org.example.enteties;
+package org.example.entities;
 
 import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.json.bind.annotation.JsonbTransient;
@@ -12,6 +12,8 @@ import java.time.LocalTime;
 public class Booking implements Serializable {
     @JsonbTransient
     public static final Logger logger = LoggerFactory.getLogger(Booking.class);
+
+    private long id;
 
     public User user;
 
@@ -43,53 +45,20 @@ public class Booking implements Serializable {
         }
     }
 
-    public Item getEventType() {
-        return eventType;
-    }
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
 
-    public String getBand() {
-        return band;
-    }
-
-    public void setBand(String band) {
-        this.band = band;
-    }
-
+    public Item getEventType() { return eventType; }
+    public String getBand() { return band; }
+    public void setBand(String band) { this.band = band; }
     public void info(){/*overridden*/}
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public void setEventType(Item eventType) {
-        this.eventType = eventType;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
+    public Location getLocation() { return location; }
+    public void setLocation(Location location) { this.location = location; }
+    public void setEventType(Item eventType) { this.eventType = eventType; }
+    public LocalTime getTime() { return time; }
+    public void setTime(LocalTime time) { this.time = time; }
+    public LocalDate getDate() { return date; }
+    public void setDate(LocalDate date) { this.date = date; }
 }

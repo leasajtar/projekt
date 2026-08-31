@@ -22,12 +22,12 @@ public class UtilityBounds {
     }
 
     // LOWER BOUNDED -----------------------------------------------------------------------------------------------
-    public static void addToList(List<? super org.example.enteties.Record> list, org.example.enteties.Record record) {
+    public static void addToList(List<? super org.example.entities.Record> list, org.example.entities.Record record) {
         list.add(record);
     }
 
     // FILTER & UPPER BOUNDED ----------------------------------------------------------------------------------------
-    public static void printCheapEvents(List<? extends org.example.enteties.Record> events) {
+    public static void printCheapEvents(List<? extends org.example.entities.Record> events) {
         events.stream()
                 .filter(e -> e.getItemPrice().compareTo(new BigDecimal("300")) < 0)
                 .forEach(System.out::println);

@@ -37,15 +37,7 @@
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </HBox.margin>
             </ComboBox>
-            <TextField fx:id="streetInput" prefWidth="150.0" promptText="Street">
-                <padding>
-                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                </padding>
-                <HBox.margin>
-                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                </HBox.margin>
-            </TextField>
-            <TextField fx:id="houseInput" prefWidth="150.0" promptText="Number">
+            <TextField fx:id="addressInput" prefWidth="220.0" promptText="Address">
                 <padding>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </padding>

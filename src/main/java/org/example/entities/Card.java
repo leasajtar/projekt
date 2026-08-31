@@ -1,4 +1,4 @@
-package org.example.enteties;
+package org.example.entities;
 
 
 public sealed interface Card permits Cancellable {

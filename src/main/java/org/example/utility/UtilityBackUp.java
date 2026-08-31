@@ -1,7 +1,7 @@
 package org.example.utility;
 
-import org.example.enteties.*;
-import org.example.enteties.Record;
+import org.example.entities.*;
+import org.example.entities.Record;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

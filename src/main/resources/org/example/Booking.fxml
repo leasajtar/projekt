@@ -30,8 +30,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="backupBtn" mnemonicParsing="false" onAction="#backupBookings" text="Backup" GridPane.columnIndex="1" />
-              <!-- Filter Section -->
+             <HBox alignment="CENTER_RIGHT" spacing="10.0" GridPane.columnIndex="1">
+                 <children>
+                     <Button fx:id="editBtn" mnemonicParsing="false" onAction="#handleEdit" text="Edit Selected" />
+                     <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#handleDelete" text="Delete Selected" />
+                     <Button fx:id="backupBtn" mnemonicParsing="false" onAction="#backupBookings" text="Backup" />
+                 </children>
+             </HBox>
               <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="643.0" spacing="10.0">
                   <children>
                       <Label text="Filter by:" />
@@ -46,7 +51,7 @@
 
         <Separator />
 
-        <!-- Table Section -->
+
         <TableView fx:id="bookingTableView" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="userColTab" prefWidth="180.0" text="User" />

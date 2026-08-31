@@ -1,4 +1,4 @@
-package org.example.enteties;
+package org.example.entities;
 
 
 import java.math.BigDecimal;

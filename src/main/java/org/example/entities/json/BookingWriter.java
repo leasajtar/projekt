@@ -1,7 +1,7 @@
-package org.example.enteties.json;
+package org.example.entities.json;
 
 import jakarta.json.bind.*;
-import org.example.enteties.Booking;
+import org.example.entities.Booking;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

@@ -1,15 +1,23 @@
 package org.example.repos;
 
 import org.example.utility.DbUtil;
-import org.example.enteties.*;
+import org.example.entities.*;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookingRepos {
+
+    private static final String SELECT_BASE = """
+            SELECT
+                b.id, b.date, b.time, b.street, b.house, b.city,
+                u.id AS user_id, u.username, u.password, u.email, u.phone,
+                i.id AS item_id, i.event_type, i.price
+            FROM bookings b
+            JOIN users u ON u.id = b.user_id
+            JOIN items i ON i.id = b.item_id
+            """;
 
     public void insert(Booking b) {
         String sql = """
@@ -23,9 +31,7 @@ public class BookingRepos {
             ps.setLong(2, b.getEventType().getId());
             ps.setDate(3, Date.valueOf(b.getDate()));
             ps.setTime(4, Time.valueOf(b.getTime()));
-
-            String full = b.getLocation().adress();
-            ps.setString(5, full);
+            ps.setString(5, b.getLocation().adress());
             ps.setString(6, "");
             ps.setString(7, b.getLocation().city());
 
@@ -35,174 +41,111 @@ public class BookingRepos {
         }
     }
 
-    public List<Booking> findAll(UserRepos ur, ItemRepos ir) {
-        String sql = """
-            SELECT b.id, b.date, b.time, b.street, b.house, b.city,
-                   u.id AS u_id, u.username,
-                   i.id AS i_id, i.event_type, i.price
-            FROM bookings b
-            JOIN users u ON u.id = b.user_id
-            JOIN items i ON i.id = b.item_id
-            ORDER BY b.date DESC, b.time DESC
-        """;
+    public List<Booking> findAll() {
+        return query(SELECT_BASE + " ORDER BY b.date DESC, b.time DESC", ps -> {});
+    }
 
+    public List<Booking> findByUser(int userId) {
+        return query(SELECT_BASE + " WHERE u.id = ? ORDER BY b.date DESC, b.time DESC",
+                ps -> ps.setInt(1, userId));
+    }
+
+    public Booking findLatest() {
+        List<Booking> result = query(SELECT_BASE + " ORDER BY b.id DESC LIMIT 1", ps -> {});
+        return result.isEmpty() ? null : result.get(0);
+    }
+
+    public void delete(long bookingId) {
+        String sql = "DELETE FROM bookings WHERE id = ?";
         try (Connection c = DbUtil.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, bookingId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to delete booking", e);
+        }
+    }
 
-            List<Booking> out = new ArrayList<>();
-            while (rs.next()) {
-                User u = new User();
-                u.setId(rs.getInt("u_id"));
-                u.setUsername(rs.getString("username"));
+    public void update(long bookingId, java.time.LocalDate date, java.time.LocalTime time, Location location) {
+        String sql = "UPDATE bookings SET date = ?, time = ?, street = ?, city = ? WHERE id = ?";
+        try (Connection c = DbUtil.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setDate(1, Date.valueOf(date));
+            ps.setTime(2, Time.valueOf(time));
+            ps.setString(3, location.adress());
+            ps.setString(4, location.city());
+            ps.setLong(5, bookingId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to update booking", e);
+        }
+    }
 
-                Item it = new Item();
-                it.setId(rs.getInt("i_id"));
-                it.setEventType(rs.getString("event_type"));
-                it.setPrice(rs.getBigDecimal("price"));
+    @FunctionalInterface
+    private interface Binder {
+        void bind(PreparedStatement ps) throws SQLException;
+    }
 
-                LocalDate d = rs.getDate("date").toLocalDate();
-                LocalTime t = rs.getTime("time").toLocalTime();
+    private List<Booking> query(String sql, Binder binder) {
+        try (Connection c = DbUtil.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
 
-                Location loc = new Location(
-                        (rs.getString("street") + " " + rs.getString("house")).trim(),
-                        rs.getString("city")
-                );
+            binder.bind(ps);
 
-                Booking b = new Booking(u, d, t, it, loc, null);
-                out.add(b);
+            try (ResultSet rs = ps.executeQuery()) {
+                List<Booking> out = new ArrayList<>();
+                while (rs.next()) out.add(mapRow(rs));
+                return out;
             }
-            return out;
-
         } catch (SQLException e) {
             throw new RuntimeException("Failed to load bookings", e);
         }
     }
 
-    public List<Booking> findAll() {
-        String sql = """
-            SELECT
-                b.id,
-                b.date,
-                b.time,
-                b.street,
-                b.house,
-                b.city,
-                u.id   AS user_id,
-                u.username,
-                u.password,
-                u.email,
-                u.phone,
-                i.id   AS item_id,
-                i.event_type,
-                i.price
-            FROM bookings b
-            JOIN users u ON u.id = b.user_id
-            JOIN items i ON i.id = b.item_id
-            ORDER BY b.date DESC, b.time DESC
-        """;
+    private Booking mapRow(ResultSet rs) throws SQLException {
+        User user = new User.UserBuilder(
+                rs.getInt("user_id"), rs.getString("username"), rs.getString("password"))
+                .email(rs.getString("email"))
+                .phone(rs.getString("phone"))
+                .build();
 
-        try (Connection c = DbUtil.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        Item item = new Item(rs.getInt("item_id"), rs.getString("event_type"), rs.getBigDecimal("price"));
 
-            List<Booking> out = new ArrayList<>();
+        Location location = new Location(
+                (rs.getString("street") + " " + rs.getString("house")).trim(),
+                rs.getString("city"));
 
-            while (rs.next()) {
-                // User
-                int uid = (int) rs.getLong("user_id");
-                User user = new User.UserBuilder(uid,
-                        rs.getString("username"),
-                        rs.getString("password"))
-                        .email(rs.getString("email"))
-                        .phone(rs.getString("phone"))
-                        .build();
-
-                // Item
-                int iid = (int) rs.getLong("item_id");
-                Item item = new Item(iid,
-                        rs.getString("event_type"),
-                        rs.getBigDecimal("price"));
-
-                // Date/time
-                LocalDate date = rs.getDate("date").toLocalDate();
-                LocalTime time = rs.getTime("time").toLocalTime();
-
-                // Location (you store street+house+city in DB)
-                String street = rs.getString("street");
-                String house = rs.getString("house");
-                String city = rs.getString("city");
-
-                Location loc = new Location((street + " " + house).trim(), city);
-
-                // Booking (adapt if your constructor differs)
-                Booking booking = new Booking(user, date, time, item, loc, null);
-
-                out.add(booking);
-            }
-
-            return out;
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to load bookings from DB", e);
-        }
+        Booking booking = new Booking();
+        booking.setId(rs.getLong("id"));
+        booking.setUser(user);
+        booking.setEventType(item);
+        booking.setLocation(location);
+        booking.setDate(rs.getDate("date").toLocalDate());
+        booking.setTime(rs.getTime("time").toLocalTime());
+        return booking;
     }
 
-    public Booking findLatest() {
+    public void update(Booking b) {
         String sql = """
-            SELECT b.id,
-                   b.date, b.time,
-                   b.street, b.city,
-                   u.id AS u_id, u.username, u.email, u.password, u.phone,
-                   i.id AS i_id, i.event_type, i.price
-            FROM bookings b
-            JOIN users u ON u.id = b.user_id
-            JOIN items i ON i.id = b.item_id
-            ORDER BY b.id DESC
-            LIMIT 1
+            UPDATE bookings
+            SET user_id = ?, item_id = ?, date = ?, time = ?, street = ?, house = ?, city = ?
+            WHERE id = ?
         """;
-
         try (Connection c = DbUtil.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+             PreparedStatement ps = c.prepareStatement(sql)) {
 
-            if (!rs.next()) return null;
+            ps.setLong(1, b.getUser().getId());
+            ps.setLong(2, b.getEventType().getId());
+            ps.setDate(3, Date.valueOf(b.getDate()));
+            ps.setTime(4, Time.valueOf(b.getTime()));
+            ps.setString(5, b.getLocation().adress());
+            ps.setString(6, "");
+            ps.setString(7, b.getLocation().city());
+            ps.setLong(8, b.getId());
 
-            // USER
-            User user = new User.UserBuilder(
-                    rs.getInt("u_id"),
-                    rs.getString("username"),
-                    rs.getString("password")
-            )
-                    .email(rs.getString("email"))
-                    .phone(rs.getString("phone"))
-                    .build();
-
-            // ITEM
-            Item item = new Item(
-                    rs.getInt("i_id"),
-                    rs.getString("event_type"),
-                    rs.getBigDecimal("price")
-            );
-
-            // LOCATION (street + city)
-            Location location = new Location(
-                    rs.getString("street"),
-                    rs.getString("city")
-            );
-
-            // BOOKING
-            Booking b = new Booking();
-            b.setUser(user);
-            b.setEventType(item);
-            b.setLocation(location);
-            b.setDate(rs.getDate("date").toLocalDate());
-            b.setTime(rs.getTime("time").toLocalTime());
-
-            return b;
-
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to load latest booking", e);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to update booking", e);
         }
     }
 }

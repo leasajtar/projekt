@@ -1,8 +1,8 @@
-package org.example.enteties.json;
+package org.example.entities.json;
 
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
-import org.example.enteties.Item;
+import org.example.entities.Item;
 
 import java.io.IOException;
 import java.nio.file.Files;

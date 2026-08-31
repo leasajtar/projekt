@@ -5,19 +5,16 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.stage.Stage;
-import org.example.enteties.Booking;
-import org.example.enteties.Item;
+import org.example.app.BookingApp;
+import org.example.entities.Booking;
+import org.example.entities.Item;
 import org.example.repos.BookingRepos;
 import org.example.repos.ItemRepos;
 
-import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 

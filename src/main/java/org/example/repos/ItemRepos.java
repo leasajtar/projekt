@@ -1,7 +1,7 @@
 package org.example.repos;
 
 import org.example.utility.DbUtil;
-import org.example.enteties.Item;
+import org.example.entities.Item;
 
 import java.math.BigDecimal;
 import java.sql.*;

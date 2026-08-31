@@ -17,11 +17,13 @@ module org.example.projekt {
     requires java.sql;
 
     opens org.example to javafx.fxml;
-    exports org.example.enteties;
-    opens org.example.enteties to jakarta.json.bind, org.eclipse.yasson;
+    exports org.example.entities;
+    opens org.example.entities to jakarta.json.bind, org.eclipse.yasson;
     exports org.example.screen;
     opens org.example.screen to javafx.fxml;
-    exports org.example.enteties.json;
-    opens org.example.enteties.json to jakarta.json.bind, org.eclipse.yasson;
+    exports org.example.entities.json;
+    opens org.example.entities.json to jakarta.json.bind, org.eclipse.yasson;
+    opens org.example.app to javafx.fxml;
+    exports org.example.app;
 
 }

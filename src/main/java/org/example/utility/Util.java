@@ -1,6 +1,6 @@
 package org.example.utility;
 
-import org.example.enteties.Booking;
+import org.example.entities.Booking;
 
 import java.time.format.DateTimeFormatter;
 

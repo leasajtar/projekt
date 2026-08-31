@@ -2,9 +2,9 @@ package org.example.screen;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.example.enteties.Booking;
-import org.example.enteties.Item;
-import org.example.enteties.User;
+import org.example.entities.Booking;
+import org.example.entities.Item;
+import org.example.entities.User;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.example.enteties;
+package org.example.entities;
 
 public class poCijeni implements Comparator<Item>{
     @Override
