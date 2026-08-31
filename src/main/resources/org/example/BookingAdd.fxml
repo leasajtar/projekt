@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1024.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.screen.AddBookingController">
+    <HBox alignment="CENTER" prefHeight="47.0" prefWidth="1024.0">
+        <children>
+            <ComboBox fx:id="userDropdown" prefHeight="53.0" prefWidth="151.0" promptText="User">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </HBox.margin>
+            </ComboBox>
+            <ComboBox fx:id="eventDropdown" prefWidth="150.0" promptText="Event">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </HBox.margin>
+            </ComboBox>
+            <ComboBox fx:id="cityDropdown" prefWidth="150.0" promptText="City">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </HBox.margin>
+            </ComboBox>
+            <TextField fx:id="streetInput" prefWidth="150.0" promptText="Street">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </HBox.margin>
+            </TextField>
+            <TextField fx:id="houseInput" prefWidth="150.0" promptText="Number">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </HBox.margin>
+            </TextField>
+        </children>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1024.0">
+        <children>
+            <ComboBox fx:id="hourDropdown" prefWidth="150.0" promptText="Hour">
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </HBox.margin>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </ComboBox>
+            <ComboBox fx:id="minuteDropdown" prefWidth="150.0" promptText="Minute">
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </HBox.margin>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </ComboBox>
+         <DatePicker fx:id="datePicker">
+            <HBox.margin>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </HBox.margin>
+         </DatePicker>
+        </children>
+    </HBox>
+
+    <!-- ADD BUTTON -->
+    <Button fx:id="addBookingBtn" onAction="#handleAddBooking" text="Add Booking" />
+
+    <!-- TABLE -->
+    <TableView fx:id="bookingTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="userCol" maxWidth="96.79998624324799" minWidth="-Infinity" prefWidth="96.79998624324799" resizable="false" text="User" />
+            <TableColumn fx:id="eventCol" minWidth="-1.0" prefWidth="117.59998321533203" resizable="false" text="Event" />
+            <TableColumn fx:id="priceCol" minWidth="-1.0" prefWidth="111.19998168945312" resizable="false" text="Price" />
+            <TableColumn fx:id="dateCol" minWidth="-1.0" prefWidth="115.20001220703125" resizable="false" text="Date" />
+            <TableColumn fx:id="timeCol" minWidth="-1.0" prefWidth="134.39999389648438" resizable="false" text="Time" />
+            <TableColumn fx:id="addressCol" minWidth="-1.0" prefWidth="452.79998779296875" resizable="false" text="Address" />
+        </columns>
+    </TableView>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+
+</VBox>

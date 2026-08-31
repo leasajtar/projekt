@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="addUserVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.screen.UserAddController">
+   <children>
+      <GridPane fx:id="addUserGrid" prefHeight="720.0" prefWidth="1024.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="110.19999389648437" minHeight="10.0" prefHeight="110.19999389648437" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="99.39999809265137" minHeight="10.0" prefHeight="81.4" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="182.80002441406253" minHeight="0.0" prefHeight="49.40001220703127" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="259.6" minHeight="10.0" prefHeight="61.79999389648435" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="259.6" minHeight="10.0" prefHeight="45.5999694824219" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="335.20003051757817" minHeight="10.0" prefHeight="335.20003051757817" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fx:id="addUserTitile" strokeType="OUTSIDE" strokeWidth="0.0" text="Add User:" textAlignment="CENTER" wrappingWidth="121.33676147460938" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="15.0" />
+               </GridPane.margin>
+            </Text>
+            <Text fx:id="usernameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Text>
+            <TextField fx:id="usernameAdd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="passwordAdd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <Text fx:id="passwordText" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Text>
+            <Text fx:id="emailText" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Text>
+            <Text fx:id="phoneText" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Text>
+            <TextField fx:id="emailAdd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <TextField fx:id="phoneAdd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addUser" text="ADD" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

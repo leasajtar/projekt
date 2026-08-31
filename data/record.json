@@ -1,0 +1,25 @@
+[
+  {"bookings":{"band":"MARIACHI","bands":"MARIACHI","date":"2025-03-15","eventType":
+  {"eventType":"BIRTHDAY","id":0,"price":200},
+    "location":{"adress":"Illica 3","city":"Zagreb"},
+    "time":"12:00:00",
+    "user":{"email":"marko.m@gmail.com","id":1,"password":"BoZiCjEnAj6655","phone":"0966465258","username":"Marko123"}},
+    "itemName":{"eventType":"BIRTHDAY","id":0,"price":200},"itemPrice":200},
+  {"bookings":{"band":"KISS","bands":"KISS","date":"2024-03-03","eventType":{"eventType":"BIRTHDAY","id":0,"price":200},
+    "location":{"adress":"Illica 3","city":"Zagreb"},"time":"12:00:00",
+    "user":{"email":"devito.business@yahoo.com","id":3,"password":"idenAmaX586","phone":"[phone protected]",
+      "username":"devito?"}},"itemName":{"eventType":"BIRTHDAY","id":0,"price":200},"itemPrice":200},
+  {"bookings":{"band":"ONEDIRECTION","bands":"ONEDIRECTION","date":"2025-03-07",
+    "eventType":{"eventType":"BIRTHDAY","id":0,"price":200},
+    "location":{"adress":"Illica 3","city":"Zagreb"},"time":"12:00:00",
+    "user":{"email":"sara.marul@gmail.com","id":2,"password":"Fdiy*UHUg76F&(","phone":"","username":"SARAAAAA"}},
+    "itemName":{"eventType":"BIRTHDAY","id":0,"price":200},"itemPrice":200},
+  {"bookings":{"band":"FIVESOS","bands":"FIVESOS","date":"2021-04-01",
+    "eventType":{"eventType":"BIRTHDAY","id":0,"price":200},"location":{"adress":"Illica 3","city":"Zagreb"},
+    "time":"12:00:00",
+    "user":{"email":"devito.business@yahoo.com","id":3,"password":"idenAmaX586","phone":"[phone protected]",
+      "username":"devito?"}},"itemName":{"eventType":"BIRTHDAY","id":0,"price":200},"itemPrice":200},
+  {"bookings":{"band":"METALICA","bands":"METALICA","date":"2020-06-18","eventType":
+    {"eventType":"BIRTHDAY","id":0,"price":200},"location":{"adress":"Illica 3","city":"Zagreb"},
+    "time":"12:00:00","user":{"email":"sara.marul@gmail.com","id":2,"password":"Fdiy*UHUg76F&(","phone":"",
+      "username":"SARAAAAA"}},"itemName":{"eventType":"BIRTHDAY","id":0,"price":200},"itemPrice":200},{"bookings":{"band":"ONEDIRECTION","bands":"ONEDIRECTION","date":"2021-11-19","eventType":{"eventType":"BIRTHDAY","id":0,"price":200},"location":{"adress":"Illica 3","city":"Zagreb"},"time":"12:00:00","user":{"email":"marko.m@gmail.com","id":1,"password":"BoZiCjEnAj6655","phone":"0966465258","username":"Marko123"}},"itemName":{"eventType":"BIRTHDAY","id":0,"price":200},"itemPrice":200}]
