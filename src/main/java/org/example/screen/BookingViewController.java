@@ -10,21 +10,25 @@ import org.example.entities.Booking;
 import org.example.entities.Person;
 import org.example.repos.BookingRepos;
 import org.example.utility.BookingBackupService;
+import org.example.utility.BookingEditContext;
 import org.example.utility.Session;
 import org.example.utility.Util;
-import org.example.utility.BookingEditContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class BookingViewController {
 
+    private static final Logger logger = LoggerFactory.getLogger(BookingViewController.class);
+
     @FXML private ComboBox<String> filterDropdown;
     @FXML private TextField filterInput;
     @FXML private Button filterButton;
+    @FXML private Button editBtn;
     @FXML private Button deleteBtn;
     @FXML private Button backupBtn;
-    @FXML private Button editBtn;
 
     @FXML private TableView<Booking> bookingTableView;
     @FXML private TableColumn<Booking, String> userColTab;
@@ -32,7 +36,6 @@ public class BookingViewController {
     @FXML private TableColumn<Booking, String> dateColTab;
     @FXML private TableColumn<Booking, String> timeColTab;
     @FXML private TableColumn<Booking, String> addrColTab;
-
 
     private ObservableList<Booking> allBookings;
     private ObservableList<Booking> filteredBookings;
@@ -99,7 +102,7 @@ public class BookingViewController {
             allBookings = FXCollections.observableArrayList(bookings);
             bookingTableView.setItems(allBookings);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to load bookings from database", e);
             allBookings = FXCollections.observableArrayList();
             bookingTableView.setItems(allBookings);
             new Alert(Alert.AlertType.ERROR, "Failed to load bookings from database:\n" + e.getMessage()).showAndWait();
@@ -131,6 +134,17 @@ public class BookingViewController {
     }
 
     @FXML
+    private void handleEdit() {
+        Booking selected = bookingTableView.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            new Alert(Alert.AlertType.WARNING, "Select a booking to edit first.").showAndWait();
+            return;
+        }
+        BookingEditContext.edit(selected);
+        BookingApp.showMainApp("BookingAdd.fxml");
+    }
+
+    @FXML
     private void handleDelete() {
         Booking selected = bookingTableView.getSelectionModel().getSelectedItem();
         if (selected == null) {
@@ -157,15 +171,5 @@ public class BookingViewController {
     private void backupBookings() {
         BookingBackupService.backupNowAsync();
         new Alert(Alert.AlertType.INFORMATION, "Backup started ✅").showAndWait();
-    }
-    @FXML
-    private void handleEdit() {
-        Booking selected = bookingTableView.getSelectionModel().getSelectedItem();
-        if (selected == null) {
-            new Alert(Alert.AlertType.WARNING, "Select a booking to edit first.").showAndWait();
-            return;
-        }
-        BookingEditContext.edit(selected);
-        BookingApp.showMainApp("BookingAdd.fxml");
     }
 }

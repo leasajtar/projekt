@@ -3,6 +3,8 @@ package org.example.entities.json;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import org.example.entities.Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,12 +15,11 @@ import java.util.List;
 
 public class ItemWriter {
 
+    private static final Logger logger = LoggerFactory.getLogger(ItemWriter.class);
     private static final Path ITEM_PATH = Paths.get("data/item.json");
 
     public static void main(String[] args) {
         try {
-            Jsonb jsonb = JsonbBuilder.create();
-
             List<Item> items = Arrays.asList(
                     new Item(1,"BIRTHDAY", new java.math.BigDecimal("200")),
                     new Item(2,"WEDDING", new java.math.BigDecimal("700")),
@@ -28,11 +29,10 @@ public class ItemWriter {
             );
 
             writeItems(items);
-            System.out.println("\n✅ Podaci uspješno zapisani u JSON!");
+            logger.info("Podaci uspješno zapisani u JSON!");
 
         } catch (Exception e) {
-            System.err.println("Pogreška: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Pogreška", e);
         }
     }
 

@@ -22,19 +22,14 @@ public final class Cancellable extends Booking implements Card, Serializable {
         logger.trace("Pozvana metoda info() u klasi Booking");
         logger.info("Rezervacija za korisnika: {} - događaj: {}",
                 user.getUsername(), eventType.getEventType());
-        String paymentYN;
-        if (this.paymentMade) {
-            paymentYN = "PAYMENT MADE";
-        } else {
-            paymentYN = "PAYMENT NOT MADE";
-        }
 
-        String var10001 = this.user.getUsername();
-        System.out.println(var10001 + " - " + String.valueOf(this.date) + " - " + String.valueOf(this.time) + " - " +
-                String.valueOf(this.eventType) + " - CAN CANCEL - " + paymentYN + " available refund: " + String.valueOf(this.refund));
+        String paymentYN = this.paymentMade ? "PAYMENT MADE" : "PAYMENT NOT MADE";
+
+        logger.info("{} - {} - {} - {} - CAN CANCEL - {} available refund: {}",
+                this.user.getUsername(), this.date, this.time, this.eventType, paymentYN, this.refund);
     }
 
     public void cancel() {
-        System.out.println("Cancelling " + this.eventType.getEventType());
+        logger.info("Cancelling {}", this.eventType.getEventType());
     }
 }

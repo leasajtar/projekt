@@ -2,6 +2,8 @@ package org.example.entities.json;
 
 import jakarta.json.bind.*;
 import org.example.entities.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,10 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserReader {
+    private static final Logger logger = LoggerFactory.getLogger(UserReader.class);
+
     public static void main(String[] args) {
         try {
             Jsonb jsonb = JsonbBuilder.create();
-
             String jsonLista = Files.readString(Paths.get("data/user.json"));
 
             List<User> users = jsonb.fromJson(
@@ -20,19 +23,19 @@ public class UserReader {
                     new ArrayList<User>(){}.getClass().getGenericSuperclass()
             );
 
-            System.out.println("Lista korisnika:");
+            logger.info("Lista korisnika: {}", users.size());
             for (User u : users) {
-                System.out.println(u.getUsername() + " – " + u.getEmail());
+                logger.info("{} - {}", u.getUsername(), u.getEmail());
             }
 
         } catch (Exception e) {
-            System.err.println("Greška: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Greška", e);
         }
     }
+
     public static List<User> readUsers() {
         try {
-            System.out.println("Reading JSON from: " + Paths.get("data/user.json").toAbsolutePath());
+            logger.debug("Reading JSON from: {}", Paths.get("data/user.json").toAbsolutePath());
 
             Jsonb jsonb = JsonbBuilder.create();
             String json = Files.readString(Paths.get("data/user.json"));
@@ -43,9 +46,8 @@ public class UserReader {
             );
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Error reading users", e);
             return new ArrayList<>();
         }
     }
-
 }

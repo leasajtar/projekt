@@ -2,6 +2,8 @@ package org.example.entities.json;
 
 import jakarta.json.bind.*;
 import org.example.entities.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,6 +13,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UserWriter {
+    private static final Logger logger = LoggerFactory.getLogger(UserWriter.class);
+    private static final Path USER_PATH = Paths.get("data/user.json");
+
     public static void main(String[] args) {
         try {
             Jsonb jsonb = JsonbBuilder.create();
@@ -24,15 +29,12 @@ public class UserWriter {
             String jsonLista = jsonb.toJson(users);
             Files.writeString(Paths.get("data/user.json"), jsonLista);
 
-            System.out.println("✅ USER podaci zapisani u JSON!");
+            logger.info("USER podaci zapisani u JSON!");
 
         } catch (Exception e) {
-            System.err.println("Pogreška: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Pogreška", e);
         }
     }
-
-    private static final Path USER_PATH = Paths.get("data/user.json");
 
     public static void writeUsers(List<User> users) throws IOException {
         Jsonb jsonb = JsonbBuilder.create();

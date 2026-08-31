@@ -4,12 +4,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import org.example.exceptions.InvalidNumberInputException;
 import org.example.repos.ItemRepos;
 import org.example.entities.Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 
 public class EventAddController {
+
+    private static final Logger logger = LoggerFactory.getLogger(EventAddController.class);
 
     @FXML private TextField addEventNameInput;
     @FXML private TextField addEventPriceInput;
@@ -31,10 +36,14 @@ public class EventAddController {
         try {
             price = new BigDecimal(priceText);
             if (price.compareTo(BigDecimal.ZERO) <= 0) {
-                new Alert(Alert.AlertType.WARNING, "Price must be greater than 0.").showAndWait();
-                return;
+                InvalidNumberInputException iniex = new InvalidNumberInputException("Price must be greater than zero.");
+                throw iniex;
             }
-        } catch (NumberFormatException ex) {
+        } catch (InvalidNumberInputException iniex) {
+            new Alert(Alert.AlertType.WARNING, iniex.getMessage()).showAndWait();
+            return;
+        }
+        catch (NumberFormatException ex) {
             new Alert(Alert.AlertType.WARNING, "Price must be a number (e.g. 200 or 200.50).").showAndWait();
             return;
         }
@@ -54,7 +63,7 @@ public class EventAddController {
             addEventPriceInput.clear();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to save event", e);
             new Alert(Alert.AlertType.ERROR, "Failed to save event: " + e.getMessage()).showAndWait();
         }
     }

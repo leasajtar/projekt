@@ -14,6 +14,8 @@ import org.example.entities.Booking;
 import org.example.entities.Item;
 import org.example.repos.BookingRepos;
 import org.example.repos.ItemRepos;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -21,13 +23,14 @@ import java.util.List;
 
 public class OpeningScreenController {
 
+    private static final Logger logger = LoggerFactory.getLogger(OpeningScreenController.class);
+
     @FXML private TableView<Item> eventDetailsTbl;
     @FXML private TableColumn<Item, String> eventNameTblCol;
     @FXML private TableColumn<Item, String> eventPriceTblCol;
     @FXML private Label latestBookingLbl;
 
     private final ItemRepos itemRepos = new ItemRepos();
-
     private final BookingRepos bookingRepos = new BookingRepos();
 
     private final DateTimeFormatter df = DateTimeFormatter.ofPattern("dd.MM.yyyy");
@@ -63,7 +66,7 @@ public class OpeningScreenController {
 
         task.setOnFailed(e -> {
             Throwable ex = task.getException();
-            ex.printStackTrace();
+            logger.error("Failed to load items from DB", ex);
             new Alert(Alert.AlertType.ERROR, "Failed to load items from DB: " + ex.getMessage()).showAndWait();
         });
 
@@ -91,7 +94,7 @@ public class OpeningScreenController {
                 Platform.runLater(() -> latestBookingLbl.setText(text));
 
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("Failed to load latest booking", e);
                 Platform.runLater(() ->
                         latestBookingLbl.setText("Failed to load latest booking: " + e.getMessage())
                 );
@@ -99,11 +102,9 @@ public class OpeningScreenController {
         });
     }
 
-    // tvoje postojeće metode za gumbe ostaju iste:
     @FXML private void goToBookings()   { BookingApp.showMainApp("Booking.fxml"); }
     @FXML private void goToPrice()      { BookingApp.showMainApp("Price.fxml"); }
     @FXML private void goToUserAdd()    { BookingApp.showMainApp("UserAdd.fxml"); }
     @FXML private void goToItemAdd()    { BookingApp.showMainApp("EventAdd.fxml"); }
     @FXML private void goToBookingAdd() { BookingApp.showMainApp("BookingAdd.fxml"); }
-
 }

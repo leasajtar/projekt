@@ -7,8 +7,12 @@ import javafx.scene.control.TextField;
 import org.example.entities.User;
 import org.example.utility.Util;
 import org.example.repos.UserRepos;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UserAddController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserAddController.class);
 
     @FXML private TextField usernameAdd;
     @FXML private TextField emailAdd;
@@ -43,11 +47,10 @@ public class UserAddController {
         }
 
         if (!phone.isEmpty()) {
-            if (phone.length() != 10 && phone.length() != 11) { // your example is 10 digits; you had 11
+            if (phone.length() != 10 && phone.length() != 11) {
                 new Alert(Alert.AlertType.WARNING, "Invalid phone number.\n\t example: 0911231234").showAndWait();
                 return;
             }
-            // NOTE: you had `return;` here unconditionally (bug). Keep going instead.
         }
 
         if (!Util.passwordValidate(password)) {
@@ -57,7 +60,6 @@ public class UserAddController {
             return;
         }
 
-        // Let DB create the ID (IDENTITY)
         User newUser = new User.UserBuilder(0, username, password)
                 .email(email.isEmpty() ? null : email)
                 .phone(phone.isEmpty() ? null : phone)
@@ -73,7 +75,7 @@ public class UserAddController {
             phoneAdd.clear();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to save user", e);
             new Alert(Alert.AlertType.ERROR, "Failed to save user: " + e.getMessage()).showAndWait();
         }
     }

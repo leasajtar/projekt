@@ -2,6 +2,8 @@ package org.example.entities.json;
 
 import jakarta.json.bind.*;
 import org.example.entities.Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,10 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemReader {
+    private static final Logger logger = LoggerFactory.getLogger(ItemReader.class);
+
     public static void main(String[] args) {
         try {
             Jsonb jsonb = JsonbBuilder.create();
-
             String jsonLista = Files.readString(Paths.get("data/item.json"));
 
             List<Item> items = jsonb.fromJson(
@@ -21,17 +24,15 @@ public class ItemReader {
                     new ArrayList<Item>(){}.getClass().getGenericSuperclass()
             );
 
-            System.out.println("Lista itema:");
+            logger.info("Lista itema: {}", items.size());
             for (Item item : items) {
-                System.out.println(item.getEventType() + " → " + item.getPrice());
+                logger.info("{} -> {}", item.getEventType(), item.getPrice());
             }
 
         } catch (IOException e) {
-            System.err.println("Greška pri čitanju datoteke: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Greška pri čitanju datoteke", e);
         } catch (Exception e) {
-            System.err.println("Pogreška: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Pogreška", e);
         }
     }
 
@@ -46,9 +47,8 @@ public class ItemReader {
             );
 
         } catch (Exception e) {
-            System.err.println("Error reading items: " + e.getMessage());
-            e.printStackTrace();
-            return new ArrayList<>(); // return empty list if file missing
+            logger.error("Error reading items", e);
+            return new ArrayList<>();
         }
     }
 }

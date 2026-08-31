@@ -1,10 +1,15 @@
 package org.example.utility;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
 
 public class UtilitLogs {
+    private static final Logger logger = LoggerFactory.getLogger(UtilitLogs.class);
+
     public static final String LOG_FILE = "actions.xml";
 
     public static void logAction(String action) {
@@ -22,7 +27,7 @@ public class UtilitLogs {
 
             fw.close();
         } catch (Exception e) {
-            System.out.println("Greška pri pisanju u XML log: " + e.getMessage());
+            logger.error("Greška pri pisanju u XML log", e);
         }
     }
 
@@ -31,7 +36,6 @@ public class UtilitLogs {
             File file = new File(LOG_FILE);
             if (!file.exists()) return;
 
-            // Check if file already has closing tag
             String content = new String(java.nio.file.Files.readAllBytes(file.toPath()));
             if (!content.trim().endsWith("</log>")) {
                 FileWriter fw = new FileWriter(file, true);
@@ -41,6 +45,7 @@ public class UtilitLogs {
         } catch (Exception ignored) {}
     }
 
+    // Namjerni, korisnički izlaz (Lab 6 zahtjev: ispis loga bez tagova) — ostaje System.out, nije debug.
     public static void printLogWithoutTags() {
         try {
             File file = new File(LOG_FILE);
@@ -63,7 +68,7 @@ public class UtilitLogs {
             System.out.println("----------------------");
 
         } catch (Exception e) {
-            System.out.println("Greška pri čitanju XML loga: " + e.getMessage());
+            logger.error("Greška pri čitanju XML loga", e);
         }
     }
 }

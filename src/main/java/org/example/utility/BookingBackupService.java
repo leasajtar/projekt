@@ -1,5 +1,8 @@
 package org.example.utility;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,6 +12,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public final class BookingBackupService {
+
+    private static final Logger logger = LoggerFactory.getLogger(BookingBackupService.class);
 
     private static final String TABLE = "bookings";
     private static final String BACKUP = "bookings_BACKUP";
@@ -20,19 +25,19 @@ public final class BookingBackupService {
 
     public static void backupNowAsync() {
         Thread.ofVirtual().start(() -> {
-            // prevent overlap
             if (!running.compareAndSet(false, true)) return;
 
             try {
                 backupOnce();
-                System.out.println("Backup completed: " + BACKUP);
-            } catch (Exception _) {
-                System.err.println("Backup failed");
+                logger.info("Backup completed: {}", BACKUP);
+            } catch (Exception e) {
+                logger.error("Backup failed", e);
             } finally {
                 running.set(false);
             }
         });
     }
+
     public static void startAutoBackup(long seconds) {
         if (scheduler != null && !scheduler.isShutdown()) return;
 
@@ -43,7 +48,7 @@ public final class BookingBackupService {
         });
 
         scheduler.scheduleAtFixedRate(
-                BookingBackupService::backupNowAsync, // runs in virtual thread
+                BookingBackupService::backupNowAsync,
                 0,
                 seconds,
                 TimeUnit.SECONDS
@@ -70,6 +75,4 @@ public final class BookingBackupService {
             c.commit();
         }
     }
-
-
 }

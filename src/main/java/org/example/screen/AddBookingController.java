@@ -13,6 +13,8 @@ import org.example.repos.ItemRepos;
 import org.example.repos.UserRepos;
 import org.example.utility.BookingEditContext;
 import org.example.utility.Session;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -20,6 +22,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class AddBookingController {
+
+    private static final Logger logger = LoggerFactory.getLogger(AddBookingController.class);
 
     @FXML private ComboBox<User> userDropdown;
     @FXML private ComboBox<Item> eventDropdown;
@@ -71,7 +75,7 @@ public class AddBookingController {
                 @Override public Item fromString(String s) { return null; }
             });
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed during controller initialize()", e);
             new Alert(Alert.AlertType.ERROR, "Failed during controller initialize():\n" + e.getMessage()).showAndWait();
         }
 
@@ -125,10 +129,6 @@ public class AddBookingController {
         bookingTable.setItems(FXCollections.observableArrayList(bookings));
     }
 
-    /**
-     * Provjerava podatke rezervacije prije spremanja.
-     * Baca {@link InvalidBookingException} za datum koji je već prošao.
-     */
     private void validateBooking(LocalDate date) throws InvalidBookingException {
         if (date.isBefore(LocalDate.now())) {
             throw new InvalidBookingException("Booking date cannot be in the past.");
@@ -169,12 +169,11 @@ public class AddBookingController {
                 bookingRepo.insert(booking);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to save booking", e);
             new Alert(Alert.AlertType.ERROR, "Failed to save booking: " + e.getMessage()).showAndWait();
             return;
         }
 
-        // Do ovog trenutka je rezervacija sigurno spremljena — sve ispod je samo osvježavanje prikaza.
         if (editingBooking != null) {
             new Alert(Alert.AlertType.INFORMATION, "Booking updated!").showAndWait();
             editingBooking = null;
@@ -186,7 +185,7 @@ public class AddBookingController {
         try {
             reloadBookingsTable();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Booking was saved, but the table could not be refreshed", e);
             new Alert(Alert.AlertType.WARNING,
                     "Booking was saved, but the table couldn't be refreshed automatically. " +
                             "Reopen this screen to see it.").showAndWait();

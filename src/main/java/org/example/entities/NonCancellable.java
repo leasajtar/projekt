@@ -21,17 +21,10 @@ public class NonCancellable extends Booking implements Cash, Serializable {
     }
 
     public void info() {
-        String paymentYN;
-        if (this.payment) {
-            paymentYN = "PAYMENT MADE";
-        } else {
-            paymentYN = "PAYMENT NOT MADE";
-        }
+        String paymentYN = this.payment ? "PAYMENT MADE" : "PAYMENT NOT MADE";
 
-        PrintStream var10000 = System.out;
-        String var10001 = this.user.getUsername();
-        var10000.println(var10001 + " - " + String.valueOf(this.date) + " - " + String.valueOf(this.time) + " - " +
-                String.valueOf(this.eventType) + " - CANNOT CANCEL - " + paymentYN);
+        logger.info("{} - {} - {} - {} - CANNOT CANCEL - {}",
+                this.user.getUsername(), this.date, this.time, this.eventType, paymentYN);
     }
 
     public BigDecimal popust() {
