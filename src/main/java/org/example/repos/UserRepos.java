@@ -3,6 +3,7 @@ package org.example.repos;
 import org.example.entities.Admin;
 import org.example.entities.Person;
 import org.example.entities.User;
+import org.example.exceptions.DatabaseException;
 import org.example.utility.DbUtil;
 
 import java.sql.*;
@@ -44,7 +45,7 @@ public class UserRepos {
                     return id;
                 }
             }
-            throw new RuntimeException("No generated key returned for users insert");
+            throw new DatabaseException("No generated key returned for users insert");
 
         } catch (SQLException e) {
             throw new RuntimeException("Failed to insert user", e);

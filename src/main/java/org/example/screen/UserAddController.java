@@ -46,11 +46,9 @@ public class UserAddController {
             return;
         }
 
-        if (!phone.isEmpty()) {
-            if (phone.length() != 10 && phone.length() != 11) {
-                new Alert(Alert.AlertType.WARNING, "Invalid phone number.\n\t example: 0911231234").showAndWait();
-                return;
-            }
+        if (!phone.isEmpty() && phone.length() != 10 && phone.length() != 11) {
+            new Alert(Alert.AlertType.WARNING, "Invalid phone number.\n\t example: 0911231234").showAndWait();
+            return;
         }
 
         if (!Util.passwordValidate(password)) {

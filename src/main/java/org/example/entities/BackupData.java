@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Set;
 
 public class BackupData implements Serializable {
-    public List<User> users;
-    public List<Booking> bookings;
-    public Set<Record> records;
-    public List<Item> items;
+    protected transient List<User> users;
+    protected transient List<Booking> bookings;
+    protected transient Set<Record> records;
+    protected transient List<Item> items;
 
     public BackupData(List<User> u, List<Booking> b, Set<Record> r, List<Item> i) {
         this.users = u;

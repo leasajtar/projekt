@@ -15,6 +15,7 @@ module org.example.projekt {
     requires jakarta.json.bind;
     requires java.desktop;
     requires java.sql;
+    requires javafx.base;
 
     opens org.example to javafx.fxml;
     exports org.example.entities;

@@ -5,6 +5,7 @@ import org.example.entities.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,12 +14,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UserWriter {
-    private static final Logger logger = LoggerFactory.getLogger(UserWriter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserWriter.class);
     private static final Path USER_PATH = Paths.get("data/user.json");
 
-    public static void main(String[] args) {
-        try {
-            Jsonb jsonb = JsonbBuilder.create();
+    static void main() {
+        JsonbConfig config = new JsonbConfig()
+                .withFormatting(true);
+        try (Jsonb jsonb = JsonbBuilder.create(config);) {
 
             List<User> users = Arrays.asList(
                     new User.UserBuilder(1, "Marko123", "BoZiCjEnAj6655").email("marko.m@gmail.com").phone("0966465258").build(),
@@ -29,17 +31,19 @@ public class UserWriter {
             String jsonLista = jsonb.toJson(users);
             Files.writeString(Paths.get("data/user.json"), jsonLista);
 
-            logger.info("USER podaci zapisani u JSON!");
+            LOGGER.info("USER podaci zapisani u JSON!");
 
         } catch (Exception e) {
-            logger.error("Pogreška", e);
+            LOGGER.error("Pogreška", e);
         }
     }
 
     public static void writeUsers(List<User> users) throws IOException {
-        Jsonb jsonb = JsonbBuilder.create();
-        String json = jsonb.toJson(users);
-        Files.createDirectories(USER_PATH.getParent());
-        Files.writeString(USER_PATH, json);
+        try(Jsonb jsonb = JsonbBuilder.create();
+            BufferedWriter writer = Files.newBufferedWriter(USER_PATH)) {
+            jsonb.toJson(users, writer);
+        }catch (Exception e){
+            LOGGER.error("Error writing user data", e);
+        }
     }
 }

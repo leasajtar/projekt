@@ -1,6 +1,6 @@
 package org.example.screen;
 
-import javafx.beans.property.SimpleStringProperty;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,14 +9,10 @@ import org.example.app.BookingApp;
 import org.example.entities.Booking;
 import org.example.entities.Person;
 import org.example.repos.BookingRepos;
-import org.example.utility.BookingBackupService;
-import org.example.utility.BookingEditContext;
-import org.example.utility.Session;
-import org.example.utility.Util;
+import org.example.utility.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class BookingViewController {
@@ -38,7 +34,6 @@ public class BookingViewController {
     @FXML private TableColumn<Booking, String> addrColTab;
 
     private ObservableList<Booking> allBookings;
-    private ObservableList<Booking> filteredBookings;
 
     private final BookingRepos bookingRepos = new BookingRepos();
 
@@ -66,31 +61,16 @@ public class BookingViewController {
         loadBookings();
     }
 
+
     private void setupTableColumns() {
-        userColTab.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getUser() != null && c.getValue().getUser().getUsername() != null
-                        ? c.getValue().getUser().getUsername() : "N/A"));
-
-        eventColTab.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getEventType() != null && c.getValue().getEventType().getEventType() != null
-                        ? c.getValue().getEventType().getEventType() : "N/A"));
-
-        dateColTab.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getDate() != null
-                        ? c.getValue().getDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) : "N/A"));
-
-        timeColTab.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getTime() != null
-                        ? c.getValue().getTime().format(DateTimeFormatter.ofPattern("HH:mm")) : "N/A"));
-
-        addrColTab.setCellValueFactory(c -> {
-            if (c.getValue().getLocation() == null) return new SimpleStringProperty("N/A");
-            String address = c.getValue().getLocation().adress() != null ? c.getValue().getLocation().adress() : "";
-            String city = c.getValue().getLocation().city() != null ? c.getValue().getLocation().city() : "";
-            String combined = (address + (address.isEmpty() || city.isEmpty() ? "" : ", ") + city).trim();
-            return new SimpleStringProperty(combined.isEmpty() ? "N/A" : combined);
-        });
+        userColTab.setCellValueFactory(BookingViewUtil::userValue);
+        eventColTab.setCellValueFactory(BookingViewUtil::eventValue);
+        dateColTab.setCellValueFactory(BookingViewUtil::dateValue);
+        timeColTab.setCellValueFactory(BookingViewUtil::timeValue);
+        addrColTab.setCellValueFactory(BookingViewUtil::addressValue);
     }
+
+
 
     private void loadBookings() {
         try {
@@ -122,7 +102,7 @@ public class BookingViewController {
             return;
         }
 
-        filteredBookings = allBookings.filtered(booking -> Util.filterSwitch(filter, value, booking));
+        ObservableList<Booking> filteredBookings = allBookings.filtered(booking -> Util.filterSwitch(filter, value, booking));
         bookingTableView.setItems(filteredBookings);
     }
 

@@ -70,4 +70,5 @@ public final class Util {
     private static boolean hasText(String source, String value) {
         return source != null && source.toLowerCase().contains(value);
     }
+
 }

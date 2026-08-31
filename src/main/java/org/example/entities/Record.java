@@ -12,12 +12,12 @@ public class Record implements Serializable {
     private Booking booking;
     private static LocalDate bookingDate;
 
-    public Record(){};
+    public Record(){}
     public Record(Booking booking, LocalDate bookingDate) {
         this.booking = booking;
-        Record.bookingDate = bookingDate;
+
         logger.info("Record kreiran za rezervaciju korisnika {}", booking.user.getUsername());
-        logger.debug("Detalji recorda -> Datum: {}, Event: {}", booking.eventType);
+        logger.debug("Detalji recorda -> Datum: {}, Event: {}",bookingDate, booking.eventType);
     }
 
     public Booking getBookings() {
@@ -33,7 +33,7 @@ public class Record implements Serializable {
     }
 
     public String getBookingBand(){
-        return getBookingBand().toString();
+        return getBookingBand();
     }
 
     public static LocalDate getBookingDate() {

@@ -1,21 +1,56 @@
 package org.example.utility;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 
 public final class DbUtil {
 
-    private static final String URL = "jdbc:h2:tcp://localhost/~/test";
-    private static final String USER = "sa";
-    private static final String PASS = "sa";
+    private static final Properties properties = new Properties();
+
+    static {
+        try (InputStream input =
+                     DbUtil.class.getResourceAsStream("/database.properties")) {
+
+            if (input == null) {
+                throw new IllegalStateException(
+                        "database.properties not found"
+                );
+            }
+
+            properties.load(input);
+
+        } catch (IOException e) {
+            throw new IllegalStateException(
+                    "Could not load database.properties",
+                    e
+            );
+        }
+    }
 
     private DbUtil() {}
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASS);
+        String url = properties.getProperty("db.url");
+        String user = properties.getProperty("db.user");
+        String password = properties.getProperty("db.password");
+
+        if (url == null) {
+            throw new IllegalStateException(
+                    "Property db.url is missing from database.properties"
+            );
+        }
+
+        return DriverManager.getConnection(
+                url,
+                user,
+                password
+        );
     }
 
     public static void init() {

@@ -36,14 +36,14 @@ public class EventAddController {
         try {
             price = new BigDecimal(priceText);
             if (price.compareTo(BigDecimal.ZERO) <= 0) {
-                InvalidNumberInputException iniex = new InvalidNumberInputException("Price must be greater than zero.");
-                throw iniex;
+                throw new InvalidNumberInputException("Price must be greater than zero.");
+
             }
         } catch (InvalidNumberInputException iniex) {
             new Alert(Alert.AlertType.WARNING, iniex.getMessage()).showAndWait();
             return;
         }
-        catch (NumberFormatException ex) {
+        catch (NumberFormatException _) {
             new Alert(Alert.AlertType.WARNING, "Price must be a number (e.g. 200 or 200.50).").showAndWait();
             return;
         }

@@ -1,7 +1,10 @@
 package org.example.repos;
 
+import org.example.exceptions.DatabaseException;
 import org.example.utility.DbUtil;
 import org.example.entities.Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -9,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemRepos {
+    public static final Logger log = LoggerFactory.getLogger(ItemRepos.class);
+
 
     public boolean eventExists(String eventType) {
         String sql = "SELECT 1 FROM items WHERE LOWER(event_type) = LOWER(?)";
@@ -41,9 +46,12 @@ public class ItemRepos {
                     return id;
                 }
             }
-            throw new RuntimeException("No generated key for items insert");
+            throw new DatabaseException("No generated key for items insert");
+
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            log.error("Failed to insert item", e);
+            throw new RuntimeException("Failed to insert item", e);
+
         }
     }
 

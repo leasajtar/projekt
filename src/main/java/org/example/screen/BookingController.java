@@ -10,54 +10,47 @@ import java.util.List;
 
 public class BookingController {
 
-    private static BookingController instance;
+    private static final ObservableList<Booking> bookings =
+            FXCollections.observableArrayList();
 
-    private ObservableList<Booking> bookings;
-    private ObservableList<User> users;
-    private ObservableList<Item> items;
+    private static final ObservableList<User> users =
+            FXCollections.observableArrayList();
+
+    private static final ObservableList<Item> items =
+            FXCollections.observableArrayList();
 
     private BookingController() {
-        bookings = FXCollections.observableArrayList();
-        users = FXCollections.observableArrayList();
-        items = FXCollections.observableArrayList();
     }
 
-    public static BookingController getInstance() {
-        if (instance == null) {
-            instance = new BookingController();
-        }
-        return instance;
-    }
-
-    public ObservableList<Booking> getBookings() {
+    public static ObservableList<Booking> getBookings() {
         return bookings;
     }
 
-    public void addBooking(Booking booking) {
+    public static void addBooking(Booking booking) {
         bookings.add(booking);
     }
 
-    public void removeBooking(Booking booking) {
+    public static void removeBooking(Booking booking) {
         bookings.remove(booking);
     }
 
-    public void setBookings(List<Booking> bookingList) {
+    public static void setBookings(List<Booking> bookingList) {
         bookings.setAll(bookingList);
     }
 
-    public ObservableList<User> getUsers() {
+    public static ObservableList<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> userList) {
+    public static void setUsers(List<User> userList) {
         users.setAll(userList);
     }
 
-    public ObservableList<Item> getItems() {
+    public static ObservableList<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> itemList) {
+    public static void setItems(List<Item> itemList) {
         items.setAll(itemList);
     }
 }

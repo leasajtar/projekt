@@ -16,8 +16,7 @@ import org.example.utility.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -81,7 +80,8 @@ public class AddBookingController {
 
         cityDropdown.setItems(FXCollections.observableArrayList("Zagreb", "Split", "Osijek"));
 
-        datePicker.setValue(LocalDate.now());
+        Clock clock = Clock.systemDefaultZone();
+        datePicker.setValue(LocalDate.now(clock));
         hourDropdown.setItems(FXCollections.observableArrayList());
         minuteDropdown.setItems(FXCollections.observableArrayList());
         for (int i = 0; i < 24; i++) hourDropdown.getItems().add(i);
@@ -130,7 +130,8 @@ public class AddBookingController {
     }
 
     private void validateBooking(LocalDate date) throws InvalidBookingException {
-        if (date.isBefore(LocalDate.now())) {
+        Clock clock = Clock.systemDefaultZone();
+        if (date.isBefore(LocalDate.now(clock))) {
             throw new InvalidBookingException("Booking date cannot be in the past.");
         }
     }

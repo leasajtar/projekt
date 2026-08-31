@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 public class UtilityBackUp {
+    private UtilityBackUp(){}
     private static final Logger logger = LoggerFactory.getLogger(UtilityBackUp.class);
 
     public static void saveBackup(List<User> users,

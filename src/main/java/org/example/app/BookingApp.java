@@ -15,14 +15,20 @@ public class BookingApp extends Application {
     private static Stage primaryStage;
     private static BorderPane mainRoot;
 
+
+
     public void start(Stage stage) {
         DbUtil.init();
-        primaryStage = stage;
+        setPrimaryStage(stage);
 
         showLoginScreen();
 
         primaryStage.setTitle("Booking Management System");
         primaryStage.show();
+    }
+
+    private static void setPrimaryStage(Stage stage) {
+        primaryStage = stage;
     }
 
     public static void showLoginScreen() {

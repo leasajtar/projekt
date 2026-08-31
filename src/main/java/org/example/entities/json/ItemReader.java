@@ -5,49 +5,58 @@ import org.example.entities.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemReader {
-    private static final Logger logger = LoggerFactory.getLogger(ItemReader.class);
+    private ItemReader() {}
 
-    public static void main(String[] args) {
-        try {
-            Jsonb jsonb = JsonbBuilder.create();
-            String jsonLista = Files.readString(Paths.get("data/item.json"));
+    private static final Path JSON_LISTA = Paths.get("data/item.json");
+    private static final Logger LOGGER =
+            LoggerFactory.getLogger(ItemReader.class);
+
+    static void main() {
+        JsonbConfig config = new JsonbConfig()
+                .withFormatting(true);
+        try(BufferedReader itemPath = Files.newBufferedReader(JSON_LISTA);
+            Jsonb jsonb = JsonbBuilder.create(config);) {
 
             List<Item> items = jsonb.fromJson(
-                    jsonLista,
-                    new ArrayList<Item>(){}.getClass().getGenericSuperclass()
+                    itemPath,
+                    ArrayList.class
             );
 
-            logger.info("Lista itema: {}", items.size());
+            LOGGER.info("Lista itema: {}", items.size());
             for (Item item : items) {
-                logger.info("{} -> {}", item.getEventType(), item.getPrice());
+                LOGGER.info("{} -> {}", item.getEventType(), item.getPrice());
             }
 
         } catch (IOException e) {
-            logger.error("Greška pri čitanju datoteke", e);
+            LOGGER.error("Greška pri čitanju datoteke", e);
         } catch (Exception e) {
-            logger.error("Pogreška", e);
+            LOGGER.error("Pogreška", e);
         }
     }
 
     public static List<Item> readItems() {
-        try {
-            Jsonb jsonb = JsonbBuilder.create();
-            String json = Files.readString(Paths.get("data/item.json"));
+        JsonbConfig config = new JsonbConfig()
+                .withFormatting(true);
+        try(Jsonb jsonb = JsonbBuilder.create(config);) {
+
 
             return jsonb.fromJson(
-                    json,
-                    new ArrayList<Item>(){}.getClass().getGenericSuperclass()
+                    (Reader) jsonb,
+                    ArrayList.class
             );
 
         } catch (Exception e) {
-            logger.error("Error reading items", e);
+            LOGGER.error("Error reading items", e);
             return new ArrayList<>();
         }
     }

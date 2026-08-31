@@ -15,7 +15,7 @@ public class Booking implements Serializable {
 
     private long id;
 
-    public User user;
+    protected User user;
 
     @JsonbDateFormat("yyyy-MM-dd")
     public LocalDate date;
@@ -23,10 +23,10 @@ public class Booking implements Serializable {
     @JsonbDateFormat("HH:mm:ss")
     public LocalTime time;
 
-    public Item eventType;
-    public Location location;
+    protected Item eventType;
+    protected Location location;
 
-    public String band;
+    protected String band;
 
     public Booking(){}
 

@@ -14,7 +14,7 @@ public final class Cancellable extends Booking implements Card, Serializable {
         this.refund = this.eventType.getPrice().multiply(new BigDecimal("0.5"));
         this.paymentMade = paymentMade;
         logger.info("Cancellable rezervacija kreirana, plaćeno: {}", paymentMade);
-        logger.debug("Detalji -> Event: {}, Datum: {}, Lokacija: {}", eventType.getEventType(), date);
+        logger.debug("Detalji -> Event: {}, Datum: {}, Lokacija: {}", eventType.getEventType(), date, location);
     }
 
     @Override

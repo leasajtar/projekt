@@ -6,6 +6,7 @@ import org.example.entities.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,10 +16,10 @@ import java.util.List;
 
 public class ItemWriter {
 
-    private static final Logger logger = LoggerFactory.getLogger(ItemWriter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ItemWriter.class);
     private static final Path ITEM_PATH = Paths.get("data/item.json");
 
-    public static void main(String[] args) {
+    static void main() {
         try {
             List<Item> items = Arrays.asList(
                     new Item(1,"BIRTHDAY", new java.math.BigDecimal("200")),
@@ -29,17 +30,21 @@ public class ItemWriter {
             );
 
             writeItems(items);
-            logger.info("Podaci uspješno zapisani u JSON!");
+            LOGGER.info("Podaci uspješno zapisani u JSON!");
 
         } catch (Exception e) {
-            logger.error("Pogreška", e);
+            LOGGER.error("Pogreška", e);
         }
     }
 
     public static void writeItems(List<Item> items) throws IOException {
-        Jsonb jsonb = JsonbBuilder.create();
-        String json = jsonb.toJson(items);
-        Files.createDirectories(ITEM_PATH.getParent());
-        Files.writeString(ITEM_PATH, json);
+        try(Jsonb jsonb = JsonbBuilder.create();
+            BufferedWriter writer = Files.newBufferedWriter(ITEM_PATH)) {
+            jsonb.toJson(items, writer);
+        }catch (Exception e){
+            LOGGER.error("Error writing item data", e);
+        }
+
+
     }
 }
