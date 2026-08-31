@@ -1,0 +1,551 @@
+2026-08-31 15:43:22.772 [load-items] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 15:43:22.778 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 15:43:22.778 [load-items] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 15:43:22.779 [load-items] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 15:43:22.779 [load-items] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 15:43:22.779 [load-items] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 15:43:22.779 [load-items] INFO  org.example.entities.Item - Item 'FUNERAL' dodan
+2026-08-31 15:43:22.779 [load-items] DEBUG org.example.entities.Item - Cijena itema: 800.00
+2026-08-31 15:43:22.779 [load-items] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 15:43:22.779 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 15:43:22.779 [load-items] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 15:43:22.779 [load-items] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 15:43:22.779 [load-items] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 15:43:22.779 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 15:43:22.779 [load-items] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 15:43:22.773 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 15:43:22.781 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 15:43:22.781 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 15:43:22.782 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 15:43:22.782 [virtual-61] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 15:43:22.782 [virtual-61] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 15:43:22.782 [virtual-61] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 15:43:22.784 [virtual-61] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 15:43:22.784 [virtual-61] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 15:44:41.642 [load-items] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 15:44:41.644 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 15:44:41.644 [load-items] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 15:44:41.644 [load-items] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 15:44:41.644 [load-items] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 15:44:41.644 [load-items] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 15:44:41.644 [load-items] INFO  org.example.entities.Item - Item 'FUNERAL' dodan
+2026-08-31 15:44:41.644 [load-items] DEBUG org.example.entities.Item - Cijena itema: 800.00
+2026-08-31 15:44:41.644 [load-items] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 15:44:41.644 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 15:44:41.644 [load-items] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 15:44:41.644 [load-items] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 15:44:41.644 [load-items] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 15:44:41.642 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 15:44:41.645 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 15:44:41.645 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 15:44:41.645 [load-items] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 15:44:41.645 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 15:44:41.645 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 15:44:41.645 [virtual-61] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 15:44:41.647 [virtual-61] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 15:44:41.647 [virtual-61] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 15:44:41.647 [virtual-61] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 15:44:41.648 [virtual-61] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 18:30:29.636 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:30:29.639 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:30:29.639 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:30:29.639 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:30:29.639 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:30:29.639 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:30:29.767 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:30:29.767 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:30:29.767 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:30:29.767 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:30:29.767 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:30:29.767 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:30:29.769 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 18:30:29.769 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 18:30:42.181 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 18:30:42.181 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:30:42.181 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 18:30:42.181 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 18:30:42.181 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 18:30:42.181 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 18:30:42.181 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'FUNERAL' dodan
+2026-08-31 18:30:42.181 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 800.00
+2026-08-31 18:30:42.181 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 18:30:42.182 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:30:42.182 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 18:30:42.182 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 18:30:42.182 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 18:30:42.182 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 18:30:42.182 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 18:30:42.182 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 18:30:42.193 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:30:42.193 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:30:42.193 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:30:42.193 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:30:42.193 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:30:42.193 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:30:42.193 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 18:30:42.193 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 18:31:06.315 [JavaFX Application Thread] INFO  org.example.entities.Booking - Nova rezervacija kreirana za korisnika: leasaj
+2026-08-31 18:31:06.315 [JavaFX Application Thread] DEBUG org.example.entities.Booking - Detalji rezervacije -> Event: SCHOOL PLAY, Datum: 2027-08-14, Vrijeme: 19:22
+2026-08-31 18:31:07.383 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:31:07.385 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:31:07.385 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:31:07.385 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:31:07.385 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:31:07.385 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:31:07.385 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 18:31:07.385 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 18:31:11.414 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:31:11.414 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:31:11.414 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:31:11.414 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:31:11.415 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:31:11.415 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:31:11.415 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 18:31:11.415 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:11.415 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:31:11.415 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:31:11.415 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:31:11.415 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:31:11.415 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:31:11.415 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:31:11.415 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 18:31:11.415 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 18:31:18.338 [load-items] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 18:31:18.338 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:18.338 [load-items] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 18:31:18.338 [load-items] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 18:31:18.338 [load-items] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 18:31:18.338 [load-items] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 18:31:18.338 [load-items] INFO  org.example.entities.Item - Item 'FUNERAL' dodan
+2026-08-31 18:31:18.338 [load-items] DEBUG org.example.entities.Item - Cijena itema: 800.00
+2026-08-31 18:31:18.338 [load-items] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 18:31:18.338 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:18.339 [load-items] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 18:31:18.339 [load-items] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 18:31:18.339 [load-items] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 18:31:18.339 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 18:31:18.339 [load-items] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 18:31:18.339 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 18:31:18.338 [virtual-62] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:31:18.342 [virtual-62] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:31:18.342 [virtual-62] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:31:18.342 [virtual-62] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:31:18.342 [virtual-62] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:31:18.342 [virtual-62] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:31:18.343 [virtual-62] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 18:31:18.343 [virtual-62] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:22.325 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'devito?'
+2026-08-31 18:31:22.325 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'devito@business.hr' za korisnika 'devito?'
+2026-08-31 18:31:22.325 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'devito?'
+2026-08-31 18:31:22.325 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'devito?' je kreiran.
+2026-08-31 18:31:22.325 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: devito@business.hr, Telefon: 
+2026-08-31 18:31:22.325 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'devito?'
+2026-08-31 18:31:22.325 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 18:31:22.325 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:22.325 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 18:31:22.325 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'user'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'user'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '1234561230' za korisnika 'user'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'user' je kreiran.
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 1234561230
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'user'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'vers'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'vericaperica@gmail.com' za korisnika 'vers'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'vers'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'vers' je kreiran.
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: vericaperica@gmail.com, Telefon: 
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'vers'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 18:31:22.326 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'covina_baka'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'covina_baka'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0324566045' za korisnika 'covina_baka'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'covina_baka' je kreiran.
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0324566045
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'covina_baka'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'vers'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'vericaperica@gmail.com' za korisnika 'vers'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'vers'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'vers' je kreiran.
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: vericaperica@gmail.com, Telefon: 
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'vers'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 18:31:22.328 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 18:31:22.328 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 18:31:22.329 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 18:31:22.329 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 18:31:22.329 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 18:31:22.329 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 18:31:22.330 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 18:31:22.330 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 18:31:22.330 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 18:31:22.330 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 18:31:22.330 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'devito?'
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'devito@business.hr' za korisnika 'devito?'
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'devito?'
+2026-08-31 18:31:22.330 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'devito?' je kreiran.
+2026-08-31 18:31:22.330 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: devito@business.hr, Telefon: 
+2026-08-31 18:31:22.330 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'devito?'
+2026-08-31 18:31:22.331 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 18:31:22.331 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 18:31:46.586 [virtual-69] INFO  o.e.utility.BookingBackupService - Backup completed: bookings_BACKUP
+2026-08-31 19:26:48.102 [load-items] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:26:48.105 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:48.105 [load-items] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 19:26:48.105 [load-items] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 19:26:48.105 [load-items] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 19:26:48.105 [load-items] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 19:26:48.105 [load-items] INFO  org.example.entities.Item - Item 'FUNERAL' dodan
+2026-08-31 19:26:48.105 [load-items] DEBUG org.example.entities.Item - Cijena itema: 800.00
+2026-08-31 19:26:48.105 [load-items] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:26:48.102 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:26:48.105 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:48.106 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:26:48.106 [load-items] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 19:26:48.106 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:26:48.106 [load-items] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 19:26:48.107 [virtual-61] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:26:48.107 [load-items] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 19:26:48.107 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 19:26:48.107 [virtual-61] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:26:48.107 [load-items] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 19:26:48.107 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 19:26:48.107 [virtual-61] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:26:48.107 [virtual-61] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:26:48.107 [virtual-61] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:49.702 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'devito?'
+2026-08-31 19:26:49.702 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'devito@business.hr' za korisnika 'devito?'
+2026-08-31 19:26:49.702 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'devito?'
+2026-08-31 19:26:49.702 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'devito?' je kreiran.
+2026-08-31 19:26:49.702 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: devito@business.hr, Telefon: 
+2026-08-31 19:26:49.702 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'devito?'
+2026-08-31 19:26:49.702 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:26:49.703 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:49.703 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 19:26:49.703 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 19:26:49.703 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 19:26:49.703 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 19:26:49.703 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 19:26:49.703 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 19:26:49.703 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 19:26:49.703 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 19:26:49.704 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'user'
+2026-08-31 19:26:49.704 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'user'
+2026-08-31 19:26:49.704 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '1234561230' za korisnika 'user'
+2026-08-31 19:26:49.704 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'user' je kreiran.
+2026-08-31 19:26:49.704 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 1234561230
+2026-08-31 19:26:49.704 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'user'
+2026-08-31 19:26:49.704 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 19:26:49.704 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 19:26:49.704 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:26:49.704 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:26:49.704 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:26:49.704 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:26:49.705 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:26:49.705 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:26:49.705 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:26:49.705 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:49.705 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'vers'
+2026-08-31 19:26:49.705 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'vericaperica@gmail.com' za korisnika 'vers'
+2026-08-31 19:26:49.705 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'vers'
+2026-08-31 19:26:49.705 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'vers' je kreiran.
+2026-08-31 19:26:49.705 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: vericaperica@gmail.com, Telefon: 
+2026-08-31 19:26:49.705 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'vers'
+2026-08-31 19:26:49.705 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:26:49.705 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:49.705 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 19:26:49.706 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 19:26:49.706 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 19:26:49.706 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 19:26:49.706 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 19:26:49.706 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 19:26:49.706 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 19:26:49.706 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 19:26:49.706 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'covina_baka'
+2026-08-31 19:26:49.706 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'covina_baka'
+2026-08-31 19:26:49.707 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0324566045' za korisnika 'covina_baka'
+2026-08-31 19:26:49.707 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'covina_baka' je kreiran.
+2026-08-31 19:26:49.707 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0324566045
+2026-08-31 19:26:49.707 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'covina_baka'
+2026-08-31 19:26:49.707 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:26:49.707 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:49.707 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'vers'
+2026-08-31 19:26:49.708 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'vericaperica@gmail.com' za korisnika 'vers'
+2026-08-31 19:26:49.708 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'vers'
+2026-08-31 19:26:49.708 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'vers' je kreiran.
+2026-08-31 19:26:49.708 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: vericaperica@gmail.com, Telefon: 
+2026-08-31 19:26:49.708 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'vers'
+2026-08-31 19:26:49.709 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 19:26:49.709 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 19:26:49.709 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:26:49.709 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:26:49.709 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:26:49.709 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:26:49.709 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:26:49.709 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:26:49.709 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 19:26:49.709 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 19:26:49.710 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 19:26:49.710 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 19:26:49.710 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 19:26:49.710 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 19:26:49.710 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 19:26:49.711 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 19:26:49.711 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:26:49.711 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:49.711 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 19:26:49.711 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 19:26:49.711 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 19:26:49.711 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 19:26:49.711 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 19:26:49.711 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 19:26:49.711 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:26:49.711 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:26:49.711 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 19:26:49.713 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 19:26:49.713 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 19:26:49.713 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'devito?'
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'devito@business.hr' za korisnika 'devito?'
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'devito?'
+2026-08-31 19:26:49.713 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'devito?' je kreiran.
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: devito@business.hr, Telefon: 
+2026-08-31 19:26:49.713 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'devito?'
+2026-08-31 19:26:49.713 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 19:26:49.713 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 19:27:09.680 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:27:09.681 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:27:09.681 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:27:09.681 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:27:09.681 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:27:09.681 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:27:09.714 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:27:09.714 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:27:09.714 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 19:27:09.714 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 19:48:14.458 [load-items] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:48:14.459 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:14.459 [load-items] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 19:48:14.459 [load-items] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 19:48:14.459 [load-items] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 19:48:14.459 [load-items] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 19:48:14.459 [load-items] INFO  org.example.entities.Item - Item 'FUNERAL' dodan
+2026-08-31 19:48:14.459 [load-items] DEBUG org.example.entities.Item - Cijena itema: 800.00
+2026-08-31 19:48:14.460 [load-items] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:48:14.460 [load-items] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:14.460 [load-items] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 19:48:14.460 [load-items] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 19:48:14.460 [load-items] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 19:48:14.460 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 19:48:14.460 [load-items] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 19:48:14.460 [load-items] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 19:48:14.462 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:48:14.464 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:48:14.464 [virtual-61] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:48:14.464 [virtual-61] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:48:14.464 [virtual-61] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:48:14.464 [virtual-61] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:48:14.465 [virtual-61] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:48:14.465 [virtual-61] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:16.664 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'devito?'
+2026-08-31 19:48:16.664 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'devito@business.hr' za korisnika 'devito?'
+2026-08-31 19:48:16.664 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'devito?'
+2026-08-31 19:48:16.664 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'devito?' je kreiran.
+2026-08-31 19:48:16.664 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: devito@business.hr, Telefon: 
+2026-08-31 19:48:16.664 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'devito?'
+2026-08-31 19:48:16.664 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:48:16.664 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 19:48:16.665 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 19:48:16.665 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 19:48:16.665 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SPORTS' dodan
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 300.00
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'user'
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'user'
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '1234561230' za korisnika 'user'
+2026-08-31 19:48:16.665 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'user' je kreiran.
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 1234561230
+2026-08-31 19:48:16.665 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'user'
+2026-08-31 19:48:16.665 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1000.00
+2026-08-31 19:48:16.665 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:48:16.667 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:48:16.667 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:48:16.667 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:48:16.667 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:48:16.667 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:48:16.667 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'SCHOOL PLAY' dodan
+2026-08-31 19:48:16.667 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:16.667 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'vers'
+2026-08-31 19:48:16.667 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'vericaperica@gmail.com' za korisnika 'vers'
+2026-08-31 19:48:16.667 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'vers'
+2026-08-31 19:48:16.667 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'vers' je kreiran.
+2026-08-31 19:48:16.667 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: vericaperica@gmail.com, Telefon: 
+2026-08-31 19:48:16.667 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'vers'
+2026-08-31 19:48:16.668 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:48:16.668 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:16.668 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 19:48:16.668 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 19:48:16.668 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 19:48:16.668 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 19:48:16.668 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 19:48:16.668 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 19:48:16.668 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 19:48:16.668 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'covina_baka'
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'covina_baka'
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0324566045' za korisnika 'covina_baka'
+2026-08-31 19:48:16.669 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'covina_baka' je kreiran.
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0324566045
+2026-08-31 19:48:16.669 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'covina_baka'
+2026-08-31 19:48:16.669 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'vers'
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'vericaperica@gmail.com' za korisnika 'vers'
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'vers'
+2026-08-31 19:48:16.669 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'vers' je kreiran.
+2026-08-31 19:48:16.669 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: vericaperica@gmail.com, Telefon: 
+2026-08-31 19:48:16.669 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'vers'
+2026-08-31 19:48:16.669 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'THEME PARK' dodan
+2026-08-31 19:48:16.670 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1550.00
+2026-08-31 19:48:16.670 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'leasaj'
+2026-08-31 19:48:16.670 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'email@email.com' za korisnika 'leasaj'
+2026-08-31 19:48:16.670 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'leasaj'
+2026-08-31 19:48:16.670 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'leasaj' je kreiran.
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: email@email.com, Telefon: 
+2026-08-31 19:48:16.671 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'leasaj'
+2026-08-31 19:48:16.671 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONVENTION' dodan
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 600.00
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 19:48:16.671 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 19:48:16.671 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 19:48:16.671 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 19:48:16.671 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 19:48:16.672 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'Marko123'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email '' za korisnika 'Marko123'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '0123456789' za korisnika 'Marko123'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'Marko123' je kreiran.
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: , Telefon: 0123456789
+2026-08-31 19:48:16.672 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'Marko123'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'BIRTHDAY' dodan
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 200.00
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'lea'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'ls@gmail.com' za korisnika 'lea'
+2026-08-31 19:48:16.672 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'lea'
+2026-08-31 19:48:16.673 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'lea' je kreiran.
+2026-08-31 19:48:16.673 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: ls@gmail.com, Telefon: 
+2026-08-31 19:48:16.673 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'lea'
+2026-08-31 19:48:16.673 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'CONCERT' dodan
+2026-08-31 19:48:16.673 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 700.00
+2026-08-31 19:48:16.673 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Inicijaliziran UserBuilder za 'devito?'
+2026-08-31 19:48:16.673 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen email 'devito@business.hr' za korisnika 'devito?'
+2026-08-31 19:48:16.673 [JavaFX Application Thread] DEBUG o.example.entities.User$UserBuilder - Postavljen telefon '' za korisnika 'devito?'
+2026-08-31 19:48:16.673 [JavaFX Application Thread] INFO  org.example.entities.User - Korisnik 'devito?' je kreiran.
+2026-08-31 19:48:16.673 [JavaFX Application Thread] DEBUG org.example.entities.User - Detalji korisnika -> Email: devito@business.hr, Telefon: 
+2026-08-31 19:48:16.673 [JavaFX Application Thread] INFO  o.example.entities.User$UserBuilder - UserBuilder završio kreiranje korisnika 'devito?'
+2026-08-31 19:48:16.674 [JavaFX Application Thread] INFO  org.example.entities.Item - Item 'WEDDING' dodan
+2026-08-31 19:48:16.674 [JavaFX Application Thread] DEBUG org.example.entities.Item - Cijena itema: 1000.00
