@@ -4,12 +4,24 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Serijalizabilna klasa koja cuva cijelo stanje aplikacije u nekom trenutku. Koristi
+ * je {@link org.example.utility.UtilityBackUp} za spremanje/učitavanje sadržaja
+ * datoteke backup.bin.
+ */
+
 public class BackupData implements Serializable {
     protected transient List<User> users;
     protected transient List<Booking> bookings;
     protected transient Set<Record> records;
     protected transient List<Item> items;
 
+    /**
+     * @param u lista korisnika
+     * @param b lista rezervacija
+     * @param r skup zapisa (povijest)
+     * @param i lista vrsta dogadanja
+     * */
     public BackupData(List<User> u, List<Booking> b, Set<Record> r, List<Item> i) {
         this.users = u;
         this.bookings = b;

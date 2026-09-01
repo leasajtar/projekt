@@ -53,12 +53,15 @@ public class AddBookingController {
 
     @FXML
     public void initialize() {
+        logger.info("Initializing AddBookingController");
         admin = Session.isAdmin();
 
         try {
             if (admin) {
+                logger.info("Admin logged in");
                 userDropdown.setItems(FXCollections.observableArrayList(userRepo.findAll()));
             } else if (Session.getCurrentPerson() instanceof User self) {
+                logger.info("User logged in");
                 userDropdown.setItems(FXCollections.observableArrayList(self));
                 userDropdown.setValue(self);
                 userDropdown.setDisable(true);
@@ -127,6 +130,7 @@ public class AddBookingController {
                 ? bookingRepo.findAll()
                 : bookingRepo.findByUser(Session.getCurrentPerson().getId());
         bookingTable.setItems(FXCollections.observableArrayList(bookings));
+        logger.info("Booking table updated");
     }
 
     private void validateBooking(LocalDate date) throws InvalidBookingException {
@@ -134,6 +138,7 @@ public class AddBookingController {
         if (date.isBefore(LocalDate.now(clock))) {
             throw new InvalidBookingException("Booking date cannot be in the past.");
         }
+        logger.info("Booking validated");
     }
 
     @FXML
@@ -176,6 +181,7 @@ public class AddBookingController {
         }
 
         if (editingBooking != null) {
+            logger.info("Booking updated successfully");
             new Alert(Alert.AlertType.INFORMATION, "Booking updated!").showAndWait();
             editingBooking = null;
             BookingApp.showMainApp("Booking.fxml");

@@ -13,10 +13,12 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
+/** Zapisuje korisnike u {@code data/user.json}. */
 public class UserWriter {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserWriter.class);
     private static final Path USER_PATH = Paths.get("data/user.json");
 
+    /** Sprema tri unaprijed definirana korisnika. */
     static void main() {
         JsonbConfig config = new JsonbConfig()
                 .withFormatting(true);
@@ -38,6 +40,12 @@ public class UserWriter {
         }
     }
 
+    /**
+     * Sprema listu korisnika u {@code data/user.json}.
+     *
+     * @param users korisnici koje treba zapisati
+     * @throws IOException ako zapisivanje u datoteku ne uspije
+     */
     public static void writeUsers(List<User> users) throws IOException {
         try(Jsonb jsonb = JsonbBuilder.create();
             BufferedWriter writer = Files.newBufferedWriter(USER_PATH)) {

@@ -11,11 +11,11 @@ import org.example.utility.CredentialsFileService;
 import org.example.utility.DbUtil;
 import org.example.utility.Session;
 
+
 public class BookingApp extends Application {
 
     private static Stage primaryStage;
     private static BorderPane mainRoot;
-
 
 
     public void start(Stage stage) {

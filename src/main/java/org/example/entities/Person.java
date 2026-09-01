@@ -4,7 +4,7 @@ package org.example.entities;
 import java.io.Serializable;
 
 /**
- * Apstraktni tip za bilo koga tko se može prijaviti u sustav.
+ * Apstraktna klasa za bilo koga tko se može prijaviti u sustav.
  * Konkretne uloge ({@link Admin}, {@link User}) određuju svoja prava
  * kroz implementaciju metode {@link #canManageAllBookings()}.
  */
@@ -16,8 +16,7 @@ public abstract class Person implements Serializable {
     protected String email;
     protected String phone;
 
-    protected Person() {
-    }
+    protected Person() {}
 
     protected Person(int id, String username, String password, String email, String phone) {
         this.id = id;
@@ -29,8 +28,8 @@ public abstract class Person implements Serializable {
 
     /**
      * @return {@code true} ako osoba smije vidjeti i upravljati svim
-     * rezervacijama u sustavu; {@code false} ako smije upravljati
-     * samo svojima.
+     * rezervacijama u sustavu {@link Admin}; {@code false} ako smije upravljati
+     * samo svojima {@link User}.
      */
     public abstract boolean canManageAllBookings();
 

@@ -8,6 +8,17 @@ import java.time.LocalTime;
 public class NonCancellable extends Booking implements Cash, Serializable {
     boolean payment;
 
+    /**
+     * Stvaranje nove rezervacije.
+     *
+     * @param user      korisnik koji je izvršio rezervaciju
+     * @param date      datum
+     * @param time      vrijeme
+     * @param eventType vrsta rezerviranog
+     * @param location  lokacija
+     * @param payment je li placanje izvrseno
+     * @param band      naziv benda/izvođača (može biti null)
+     */
     public NonCancellable(User user, LocalDate date, LocalTime time, Item eventType, Location location, boolean payment, String band) {
         super(user, date, time, eventType, location,  band);
         this.payment = payment;
@@ -16,6 +27,7 @@ public class NonCancellable extends Booking implements Cash, Serializable {
                 eventType.getEventType(), date, location);
     }
 
+    /**Nadjacana metoda iz {@link Booking} koja vraca informacije o rezervaciji.*/
     @Override
     public void info() {
         String paymentYN = this.payment ? "PAYMENT MADE" : "PAYMENT NOT MADE";
@@ -24,6 +36,7 @@ public class NonCancellable extends Booking implements Cash, Serializable {
                 this.user.getUsername(), this.date, this.time, this.eventType, paymentYN);
     }
 
+    /**@return popust nad originalnom cijenom radi nacina placanja {@link Cash}*/
     public BigDecimal popust() {
         return this.eventType.getPrice().multiply(new BigDecimal("0.9"));
     }

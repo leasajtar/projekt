@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Čita stavke (vrste događaja) iz {@code data/item.json}. */
 public class ItemReader {
     private ItemReader() {}
 
@@ -21,16 +22,14 @@ public class ItemReader {
     private static final Logger LOGGER =
             LoggerFactory.getLogger(ItemReader.class);
 
+    /** Učitava stavke i ispisuje ih u log. */
     static void main() {
         JsonbConfig config = new JsonbConfig()
                 .withFormatting(true);
         try(BufferedReader itemPath = Files.newBufferedReader(JSON_LISTA);
             Jsonb jsonb = JsonbBuilder.create(config);) {
 
-            List<Item> items = jsonb.fromJson(
-                    itemPath,
-                    ArrayList.class
-            );
+            List<Item> items = jsonb.fromJson(itemPath,ArrayList.class);
 
             LOGGER.info("Lista itema: {}", items.size());
             for (Item item : items) {
@@ -44,16 +43,16 @@ public class ItemReader {
         }
     }
 
+    /**
+     * Učitava stavke iz {@code data/item.json}.
+     *
+     * @return lista stavki, ili prazna lista ako dođe do greške
+     */
     public static List<Item> readItems() {
         JsonbConfig config = new JsonbConfig()
                 .withFormatting(true);
         try(Jsonb jsonb = JsonbBuilder.create(config);) {
-
-
-            return jsonb.fromJson(
-                    (Reader) jsonb,
-                    ArrayList.class
-            );
+            return jsonb.fromJson((Reader) jsonb,ArrayList.class);
 
         } catch (Exception e) {
             LOGGER.error("Error reading items", e);

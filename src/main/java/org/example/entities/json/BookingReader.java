@@ -15,51 +15,39 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Čita rezervacije iz {@code data/booking.json}. Ostatak aplikacije od 9. vježbe
+ * nadalje čita/piše rezervacije iz baze podataka ({@link org.example.repos.BookingRepos}),
+ * pa se ova klasa zadržava kao alternativni/pomoćni put za rad s JSON datotekom.
+ */
 public class BookingReader{
 
     private BookingReader() {}
 
-    private static final Logger LOGGER =
-            LoggerFactory.getLogger(BookingReader.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BookingReader.class);
 
 
-    private static final Path BOOKING_PATH =
-            Paths.get("data/booking.json");
+    private static final Path BOOKING_PATH = Paths.get("data/booking.json");
 
+    /**
+     * Učitava sve rezervacije iz {@code data/booking.json}.
+     * @return lista rezervacija, ili prazna lista ako datoteka ne postoji ili dođe do greške
+     */
     public static List<Booking> readBookings() {
-
-        LOGGER.debug(
-                "Attempting to read from: {}",
-                BOOKING_PATH.toAbsolutePath()
-        );
+        LOGGER.debug( "Attempting to read from: {}", BOOKING_PATH.toAbsolutePath());
 
         if (!Files.exists(BOOKING_PATH)) {
-            LOGGER.warn(
-                    "File does not exist at: {}",
-                    BOOKING_PATH.toAbsolutePath()
-            );
-
+            LOGGER.warn("File does not exist at: {}", BOOKING_PATH.toAbsolutePath());
             return new ArrayList<>();
         }
 
-        JsonbConfig config = new JsonbConfig()
-                .withFormatting(true);
+        JsonbConfig config = new JsonbConfig().withFormatting(true);
 
-        try (
-                BufferedReader reader =
-                        Files.newBufferedReader(BOOKING_PATH);
+        try ( BufferedReader reader = Files.newBufferedReader(BOOKING_PATH);
+                Jsonb jsonb = JsonbBuilder.create(config)) {
 
-                Jsonb jsonb =
-                        JsonbBuilder.create(config)
-        ) {
-
-            Booking[] bookingArray =
-                    jsonb.fromJson(reader, Booking[].class);
-
-            LOGGER.debug(
-                    "JSON parsed successfully. Found {} bookings",
-                    bookingArray.length
-            );
+            Booking[] bookingArray = jsonb.fromJson(reader, Booking[].class);
+            LOGGER.debug("JSON parsed successfully. Found {} bookings",bookingArray.length);
 
             for (Booking booking : bookingArray) {
                 LOGGER.trace(
@@ -77,16 +65,9 @@ public class BookingReader{
                 );
             }
 
-            return new ArrayList<>(
-                    Arrays.asList(bookingArray)
-            );
+            return new ArrayList<>(Arrays.asList(bookingArray));
 
-        } catch (Exception e) {
-            LOGGER.error(
-                    "Error reading booking data",
-                    e
-            );
-
+        } catch (Exception e) {LOGGER.error("Error reading booking data", e);
             return new ArrayList<>();
         }
     }

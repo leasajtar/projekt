@@ -40,15 +40,18 @@ public class EventAddController {
 
             }
         } catch (InvalidNumberInputException iniex) {
+            logger.error("Invalid price input", iniex);
             new Alert(Alert.AlertType.WARNING, iniex.getMessage()).showAndWait();
             return;
         }
         catch (NumberFormatException _) {
+            logger.error("Invalid price input");
             new Alert(Alert.AlertType.WARNING, "Price must be a number (e.g. 200 or 200.50).").showAndWait();
             return;
         }
 
         if (itemRepo.eventExists(name)) {
+            logger.error("Duplicate event name");
             new Alert(Alert.AlertType.WARNING, "That event already exists.").showAndWait();
             return;
         }
@@ -57,6 +60,7 @@ public class EventAddController {
 
         try {
             itemRepo.insert(newItem);
+            logger.info("Event added successfully");
             new Alert(Alert.AlertType.INFORMATION, "Event added successfully!").showAndWait();
 
             addEventNameInput.clear();

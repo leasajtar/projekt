@@ -14,11 +14,13 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
+/** Zapisuje stavke (vrste događaja) u {@code data/item.json}. */
 public class ItemWriter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ItemWriter.class);
     private static final Path ITEM_PATH = Paths.get("data/item.json");
 
+    /** Sprema pet unaprijed definiranih stavki. */
     static void main() {
         try {
             List<Item> items = Arrays.asList(
@@ -37,6 +39,12 @@ public class ItemWriter {
         }
     }
 
+    /**
+     * Sprema listu stavki u {@code data/item.json}.
+     *
+     * @param items stavke koje treba zapisati
+     * @throws IOException ako zapisivanje u datoteku ne uspije
+     */
     public static void writeItems(List<Item> items) throws IOException {
         try(Jsonb jsonb = JsonbBuilder.create();
             BufferedWriter writer = Files.newBufferedWriter(ITEM_PATH)) {

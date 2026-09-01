@@ -10,11 +10,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Set;
 
+/** Zapisuje povijesne zapise u {@code data/record.json}. */
 public class RecordWriter {
     private RecordWriter() {}
     private static final Logger LOGGER = LoggerFactory.getLogger(RecordWriter.class);
     private static final Path RECORD_PATH = Paths.get("data/record.json");
 
+    /**
+     * Sprema skup zapisa u {@code data/record.json}.
+     *
+     * @param records zapisi koje treba zapisati
+     */
     public static void writeRecords(Set<Record> records) {
         try(Jsonb jsonb = JsonbBuilder.create();
             BufferedWriter recordWriter = Files.newBufferedWriter(RECORD_PATH);) {

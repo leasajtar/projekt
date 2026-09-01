@@ -9,6 +9,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * Veze {@link User} objekt uz {@link Item}, datum, vrijeme i {@link Location}.
+ * */
+
 public class Booking implements Serializable {
     @JsonbTransient
     public static final Logger logger = LoggerFactory.getLogger(Booking.class);
@@ -28,8 +32,19 @@ public class Booking implements Serializable {
 
     protected String band;
 
+    /**Prazan konstruktor za JSON-B i JDBC mapiranje*/
     public Booking(){}
 
+    /**
+     * Stvaranje nove rezervacije.
+     *
+     * @param user      korisnik koji je izvršio rezervaciju
+     * @param date      datum
+     * @param time      vrijeme
+     * @param eventType vrsta rezerviranog
+     * @param location  lokacija
+     * @param band      naziv benda/izvođača (može biti null)
+     */
     public Booking(User user, LocalDate date, LocalTime time, Item eventType, Location location, String band) {
         this.user = user;
         this.date = date;

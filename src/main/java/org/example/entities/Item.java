@@ -7,7 +7,9 @@ import org.slf4j.LoggerFactory;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-
+/**
+ * Vrsta dogadaja koji se moze rezervirati i njegova cijena.
+ * */
 public class Item implements Serializable {
     private static final Logger logger = LoggerFactory.getLogger(Item.class);
     private int id;
@@ -16,7 +18,16 @@ public class Item implements Serializable {
     @JsonbProperty("price")
     private BigDecimal price;
 
+    /** Prazan konstruktor, potreban za JSON-B/JDBC mapiranje. */
     public Item() {}
+
+    /**
+     * Stvara novu stavku (vrstu događaja) i bilježi je u log; upozorava ako je cijena negativna.
+     *
+     * @param id        identifikator stavke
+     * @param eventType naziv/vrsta događaja
+     * @param price     cijena
+     */
     public Item(int id, String eventType, BigDecimal price) {
         this.id = id;
         this.eventType = eventType;
