@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.example.app.BookingApp;
+import org.example.collections.EntityCollection;
 import org.example.entities.Booking;
 import org.example.entities.Item;
 import org.example.repos.BookingRepos;
@@ -18,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -56,7 +58,9 @@ public class OpeningScreenController {
         Task<List<Item>> task = new Task<>() {
             @Override
             protected List<Item> call() {
-                return itemRepos.findAll();
+                EntityCollection<Item> catalog = new EntityCollection<>(Item::getId);
+                catalog.addAll(itemRepos.findAll());
+                return catalog.sortedBy(Comparator.comparing(Item::getPrice));
             }
         };
 

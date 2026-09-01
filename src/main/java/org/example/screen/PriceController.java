@@ -3,7 +3,10 @@ package org.example.screen;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import org.example.collections.Relation;
 import org.example.entities.Booking;
+import org.example.entities.Item;
+import org.example.entities.User;
 import org.example.repos.BookingRepos;
 import org.example.utility.Session;
 
@@ -59,10 +62,17 @@ public class PriceController {
         return (b.getEventType() != null && b.getEventType().getPrice() != null) ? b.getEventType().getPrice() : null;
     }
 
-    private String bookingsWithPrice(List<Booking> pool, BigDecimal price) {
+    /** Pretvara podudarajuće rezervacije u parove (korisnik, vrsta događaja) pomoću generičke klase {@link Relation}. */
+    private List<Relation<User, Item>> matchingRelations(List<Booking> pool, BigDecimal price) {
         return pool.stream()
                 .filter(b -> { BigDecimal p = priceOf(b); return p != null && p.compareTo(price) == 0; })
-                .map(b -> b.getUser().getUsername() + " - " + b.getEventType().getEventType())
+                .map(b -> new Relation<>(b.getUser(), b.getEventType()))
+                .toList();
+    }
+
+    private String bookingsWithPrice(List<Booking> pool, BigDecimal price) {
+        return matchingRelations(pool, price).stream()
+                .map(r -> r.getFirst().getUsername() + " - " + r.getSecond().getEventType())
                 .collect(Collectors.joining("\n"));
     }
 }

@@ -1,7 +1,5 @@
 package org.example.repos;
 
-import org.example.entities.Admin;
-import org.example.entities.Person;
 import org.example.entities.User;
 import org.example.exceptions.DatabaseException;
 import org.example.utility.DbUtil;
@@ -52,7 +50,7 @@ public class UserRepos {
         }
     }
 
-    /** Vraća samo obične korisnike (role='USER') — koristi se za dropdown pri rezervaciji. */
+    /** Vraća samo obične korisnike — koristi se za dropdown pri rezervaciji. */
     public List<User> findAll() {
         String sql = "SELECT id, username, password, email, phone FROM users WHERE role = 'USER' ORDER BY username";
         try (Connection c = DbUtil.getConnection();
@@ -71,28 +69,21 @@ public class UserRepos {
     }
 
     /**
-     * Provjerava prijavu i vraća odgovarajuću {@link Person} ({@link Admin}
-     * ili {@link User}), ili {@code null} ako kombinacija korisničko
-     * ime/lozinka/uloga ne odgovara nijednom zapisu.
+     * Dohvaća korisnika po korisničkom imenu — koristi se nakon što
+     * {@link org.example.utility.CredentialsFileService} potvrdi prijavu,
+     * kako bi se dobili id/email/telefon potrebni za rezervacije.
      */
-    public Person findByCredentials(String username, String password, String role) {
-        String sql = "SELECT id, username, password, email, phone, role FROM users " +
-                "WHERE LOWER(username) = LOWER(?) AND password = ? AND role = ?";
+    public User findByUsername(String username) {
+        String sql = "SELECT id, username, password, email, phone FROM users WHERE LOWER(username) = LOWER(?)";
         try (Connection c = DbUtil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
 
             ps.setString(1, username);
-            ps.setString(2, password);
-            ps.setString(3, role);
-
             try (ResultSet rs = ps.executeQuery()) {
-                if (!rs.next()) {
-                    return null;
-                }
-                return "ADMIN".equals(rs.getString("role")) ? mapAdmin(rs) : mapUser(rs);
+                return rs.next() ? mapUser(rs) : null;
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Failed to validate login", e);
+            throw new DatabaseException("Failed to find user by username", e);
         }
     }
 
@@ -104,14 +95,5 @@ public class UserRepos {
                 .email(rs.getString("email"))
                 .phone(rs.getString("phone"))
                 .build();
-    }
-
-    private Admin mapAdmin(ResultSet rs) throws SQLException {
-        return new Admin(
-                rs.getInt("id"),
-                rs.getString("username"),
-                rs.getString("password"),
-                rs.getString("email"),
-                rs.getString("phone"));
     }
 }

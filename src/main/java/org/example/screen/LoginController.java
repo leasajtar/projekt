@@ -3,8 +3,10 @@ package org.example.screen;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.example.app.BookingApp;
+import org.example.entities.Admin;
 import org.example.entities.Person;
 import org.example.repos.UserRepos;
+import org.example.utility.CredentialsFileService;
 import org.example.utility.Session;
 
 public class LoginController {
@@ -27,10 +29,19 @@ public class LoginController {
             return;
         }
 
-        Person person = userRepo.findByCredentials(username, password, role);
+        boolean valid = CredentialsFileService.validate(username, password, role);
+        if (!valid) {
+            new Alert(Alert.AlertType.ERROR, "Invalid username, password or role.").showAndWait();
+            return;
+        }
+
+        Person person = "ADMIN".equals(role)
+                ? new Admin(0, username, "", "", "")
+                : userRepo.findByUsername(username);
 
         if (person == null) {
-            new Alert(Alert.AlertType.ERROR, "Invalid username, password or role.").showAndWait();
+            new Alert(Alert.AlertType.ERROR,
+                    "Login accepted, but no matching user record exists in the database.").showAndWait();
             return;
         }
 

@@ -62,9 +62,12 @@ public final class DbUtil {
                     username VARCHAR(100) NOT NULL UNIQUE,
                     password VARCHAR(100) NOT NULL,
                     email VARCHAR(100) NULL,
-                    phone VARCHAR(100) NULL
+                    phone VARCHAR(100) NULL,
+                    role VARCHAR(10) NOT NULL DEFAULT 'USER'
                 );
             """);
+
+            s.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR(10) NOT NULL DEFAULT 'USER';");
 
             s.execute("""
                 CREATE TABLE IF NOT EXISTS items (
@@ -87,6 +90,12 @@ public final class DbUtil {
                     FOREIGN KEY (user_id) REFERENCES users(id),
                     FOREIGN KEY (item_id) REFERENCES items(id)
                 );
+            """);
+
+            s.execute("""
+                MERGE INTO users (username, password, email, phone, role)
+                KEY(username)
+                VALUES ('admin', 'admin123', '', '', 'ADMIN');
             """);
 
         } catch (SQLException e) {

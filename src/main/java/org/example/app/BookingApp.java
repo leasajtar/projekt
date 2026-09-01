@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.example.utility.CredentialsFileService;
 import org.example.utility.DbUtil;
 import org.example.utility.Session;
 
@@ -19,6 +20,7 @@ public class BookingApp extends Application {
 
     public void start(Stage stage) {
         DbUtil.init();
+        CredentialsFileService.ensureDefaultAdmin();
         setPrimaryStage(stage);
 
         showLoginScreen();
@@ -83,6 +85,9 @@ public class BookingApp extends Application {
             price.setOnAction(e -> showMainApp("Price.fxml"));
             reports.getItems().add(price);
             menuBar.getMenus().add(reports);
+            MenuItem history = new MenuItem("History / Backup Monitor");
+            history.setOnAction(e -> showMainApp("History.fxml"));
+            reports.getItems().add(history);
         } else {
             Menu myAccount = new Menu("My Account");
             MenuItem bookEvent = new MenuItem("Book an Event");

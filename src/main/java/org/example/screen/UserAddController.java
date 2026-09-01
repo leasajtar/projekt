@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.example.entities.User;
+import org.example.utility.CredentialsFileService;
 import org.example.utility.Util;
 import org.example.repos.UserRepos;
 import org.slf4j.Logger;
@@ -65,7 +66,9 @@ public class UserAddController {
 
         try {
             userRepo.insert(newUser);
-            new Alert(Alert.AlertType.INFORMATION, "User added successfully! ✅").showAndWait();
+            CredentialsFileService.addUserCredentials(username, password);
+
+            new Alert(Alert.AlertType.INFORMATION, "User added successfully!").showAndWait();
 
             usernameAdd.clear();
             passwordAdd.clear();
