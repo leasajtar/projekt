@@ -25,7 +25,7 @@ public class UserAddController {
 
     private final UserRepos userRepo = new UserRepos();
 
-    /**Obraduje klik na gumb dodavanje, validira sva polja i sprema korisnika u bazu i tekstualnu datoteku.*/
+    /**Obraduje klik na gumb za dodavanje, validira sva polja i sprema korisnika u bazu i tekstualnu datoteku.*/
     @FXML
     public void addUser() {
         String username = safe(usernameAdd.getText());
