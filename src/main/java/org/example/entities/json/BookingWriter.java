@@ -26,8 +26,8 @@ public class BookingWriter {
      * @param bookings rezervacije koje treba zapisati
      */
     public static void writeBookings(List<Booking> bookings) {
-
-        try (Jsonb jsonb = JsonbBuilder.create(); BufferedWriter writer = Files.newBufferedWriter(BOOKING_PATH)) {
+        try (Jsonb jsonb = JsonbBuilder.create();
+             BufferedWriter writer = Files.newBufferedWriter(BOOKING_PATH)) {
             jsonb.toJson(bookings, writer);
             logger.info("Booking data successfully saved to booking.json");
 

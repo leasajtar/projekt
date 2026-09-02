@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**Podklasa Klase {@link Booking} koja imprementira sučelje {@link Cash}.
+ * Oznacava tip rezervacije koju nije moguce otkazati te dobiva popust.*/
 public class NonCancellable extends Booking implements Cash, Serializable {
     boolean payment;
 

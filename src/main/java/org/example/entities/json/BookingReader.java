@@ -16,17 +16,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Čita rezervacije iz {@code data/booking.json}. Ostatak aplikacije od 9. vježbe
- * nadalje čita/piše rezervacije iz baze podataka ({@link org.example.repos.BookingRepos}),
- * pa se ova klasa zadržava kao alternativni/pomoćni put za rad s JSON datotekom.
+ * Čita rezervacije iz {@code data/booking.json}.
  */
 public class BookingReader{
 
     private BookingReader() {}
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BookingReader.class);
-
-
     private static final Path BOOKING_PATH = Paths.get("data/booking.json");
 
     /**

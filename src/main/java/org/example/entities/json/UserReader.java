@@ -19,25 +19,6 @@ public class UserReader {
     private static final Path USER_JSON = Paths.get("data/user.json");
     private static final Logger LOGGER = LoggerFactory.getLogger(UserReader.class);
 
-    /** Učitava korisnike i ispisuje ih u log. */
-    static void main() {
-        JsonbConfig config = new JsonbConfig()
-                .withFormatting(true);
-        try(BufferedReader userReader = Files.newBufferedReader(USER_JSON);
-            Jsonb jsonb = JsonbBuilder.create(config);) {
-
-            List<User> users = jsonb.fromJson(userReader,ArrayList.class);
-
-            LOGGER.info("Lista korisnika: {}", users.size());
-            for (User u : users) {
-                LOGGER.info("{} - {}", u.getUsername(), u.getEmail());
-            }
-
-        } catch (Exception e) {
-            LOGGER.error("Greška", e);
-        }
-    }
-
     /**
      * Učitava korisnike iz {@code data/user.json}.
      *
@@ -49,7 +30,6 @@ public class UserReader {
         try(BufferedReader userReader = Files.newBufferedReader(USER_JSON);
             Jsonb jsonb = JsonbBuilder.create(config);) {
             LOGGER.debug("Reading JSON from: {}", Paths.get("data/user.json").toAbsolutePath());
-
 
             return jsonb.fromJson(userReader, ArrayList.class);
 
