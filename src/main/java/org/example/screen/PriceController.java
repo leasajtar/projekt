@@ -16,6 +16,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Kontroler ekrana za prikaz minimalne/maksimalne cijene, nad svim
+ * rezervacijama za {@link org.example.entities.Admin}, ili samo vlastitim za {@link User}.
+ */
 public class PriceController {
 
     @FXML private Button minBtn;
@@ -25,6 +29,7 @@ public class PriceController {
     private final BookingRepos bookingRepo = new BookingRepos();
     private List<Booking> bookings;
 
+    /** Učitava rezervacije relevantne za trenutno prijavljenu osobu. */
     @FXML
     public void initialize() {
         bookings = Session.isAdmin()
@@ -32,6 +37,7 @@ public class PriceController {
                 : bookingRepo.findByUser(Session.getCurrentPerson().getId());
     }
 
+    /** Pronalazi najnižu cijenu među rezervacijama i prikazuje pripadajuće nadolazeće rezervacije. */
     @FXML
     private void handleMinPrice() {
         List<Booking> soonest = soonestThree();
@@ -41,6 +47,7 @@ public class PriceController {
         resultLabel.setText("Minimum price: " + min + "\n" + bookingsWithPrice(soonest, min));
     }
 
+    /** Pronalazi najvišu cijenu među rezervacijama i prikazuje pripadajuće nadolazeće rezervacije. */
     @FXML
     private void handleMaxPrice() {
         List<Booking> soonest = soonestThree();
@@ -50,6 +57,7 @@ public class PriceController {
         resultLabel.setText("Maximum price: " + max + "\n" + bookingsWithPrice(soonest, max));
     }
 
+    /** @return do tri nadolazeće (buduće) rezervacije, sortirane po najbližem datumu */
     private List<Booking> soonestThree() {
         return bookings.stream()
                 .filter(b -> b.getDate() != null && b.getDate().isAfter(LocalDate.now(Clock.systemDefaultZone())))
@@ -58,6 +66,10 @@ public class PriceController {
                 .toList();
     }
 
+    /**
+     * @param b rezervacija čiju cijenu treba dohvatiti
+     * @return cijenu događaja vezanog uz rezervaciju, ili {@code null} ako nije dostupna
+     */
     private BigDecimal priceOf(Booking b) {
         return (b.getEventType() != null && b.getEventType().getPrice() != null) ? b.getEventType().getPrice() : null;
     }
@@ -70,6 +82,11 @@ public class PriceController {
                 .toList();
     }
 
+    /**
+     * @param pool  rezervacije unutar kojih se traži podudaranje
+     * @param price cijena po kojoj se filtrira
+     * @return čitljiv tekst s korisnicima i događajima koji odgovaraju danoj cijeni, jedan po retku
+     */
     private String bookingsWithPrice(List<Booking> pool, BigDecimal price) {
         return matchingRelations(pool, price).stream()
                 .map(r -> r.getFirst().getUsername() + " - " + r.getSecond().getEventType())

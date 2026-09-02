@@ -16,6 +16,9 @@ import org.example.utility.UtilityBackUp;
 import java.util.ArrayList;
 import java.util.List;
 
+/**Kontrolor ekrana za povijest/nadzor aplikacije. Dostupan samo {@link org.example.entities.Admin}.
+ * Prikazuje popis uzivo osvjezenih aktivnosti {@link HistoryMonitor} i sadrzaj
+ * posljednje sigurnosne kopije iz {@code backup.bin} */
 public class HistoryController {
 
     @FXML private Button saveSnapshotBtn;
@@ -23,6 +26,7 @@ public class HistoryController {
     @FXML private ListView<String> activityListView;
     @FXML private ListView<String> backupListView;
 
+    /** Pokrece atomatsko osvjezavanje aktivnosti i ucitava oba popisa pri ucitavanju*/
     @FXML
     public void initialize() {
         HistoryMonitor.startAutoRefresh(5);
@@ -30,11 +34,15 @@ public class HistoryController {
         loadBackupHistory();
     }
 
+    /** Osvjezava prikaz popisa uzivo prema stanju iz {@link HistoryMonitor}*/
     @FXML
     private void refreshActivityView() {
         activityListView.setItems(FXCollections.observableArrayList(HistoryMonitor.snapshotOfActivity()));
     }
 
+    /** Pokrece snimanje snapshota u {@code backup.bin} na virtualnoj niti, a po zavrsetku
+     * osvjezava prikaz i obavjestava korisnika.
+     * */
     @FXML
     private void handleSaveSnapshot() {
         Thread.ofVirtual().start(() -> {
@@ -46,6 +54,7 @@ public class HistoryController {
         });
     }
 
+    /** Ucitava sadrzaj {@code backup.bin} i prikazuje ga u obliku citljivih redaka. */
     @FXML
     private void loadBackupHistory() {
         BackupData data = UtilityBackUp.loadBackup();
@@ -58,6 +67,11 @@ public class HistoryController {
         backupListView.setItems(FXCollections.observableArrayList(describe(data)));
     }
 
+    /**Pretvara ucitani snapshot u listu citljivih redaka teksta za prikaz u {@link ListView}.
+     *
+     * @param data snapshot podataka uccitan iz {@code backup.bin}
+     * @return redci teksta koji opisuju korisnike, rezervacije i stavke iz snapshota
+     */
     private List<String> describe(BackupData data) {
         List<String> lines = new ArrayList<>();
 
@@ -80,10 +94,17 @@ public class HistoryController {
         return lines;
     }
 
+    /** @param list lista ciju velicinu treba provjeriti (moye biti {@code null})
+     * @return velicinu liste, ili 0 ako je {@code null}
+     */
     private <T> int size(List<T> list) {
         return list == null ? 0 : list.size();
     }
 
+    /**
+     * @param list lista koju treba osigurati od {@code null} vrijednosti
+     * @return danu listu, ili praznu listu ako je {@code null}
+     */
     private <T> List<T> safe(List<T> list) {
         return list == null ? List.of() : list;
     }

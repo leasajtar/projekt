@@ -24,6 +24,10 @@ public final class CredentialsFileService {
 
     private CredentialsFileService() {}
 
+    /**
+     * Stvara {@code credentials.txt} ako ne postoji i, ako u njoj još nema
+     * admin računa, zasijava zadanog admina ({@code admin}/{@code admin123}).
+     */
     public static synchronized void ensureDefaultAdmin() {
         try {
             if (Files.notExists(FILE)) {
@@ -38,6 +42,12 @@ public final class CredentialsFileService {
         }
     }
 
+    /**
+     * Dodaje vjerodajnice novog običnog korisnika u datoteku (hashira lozinku prije zapisa).
+     *
+     * @param username      korisničko ime
+     * @param plainPassword lozinka u čitljivom (nehashiranom) obliku
+     */
     public static synchronized void addUserCredentials(String username, String plainPassword) {
         try {
             appendLine(username, PasswordHasher.hash(plainPassword), "USER");
@@ -57,6 +67,12 @@ public final class CredentialsFileService {
         return parts[2].equalsIgnoreCase(role) && PasswordHasher.matches(plainPassword, parts[1]);
     }
 
+    /**
+     * Traži redak koji odgovara danom korisničkom imenu.
+     *
+     * @param username korisničko ime koje se traži
+     * @return pronađeni redak ({@code username:hash:role}), ili {@code null} ako nije pronađen
+     */
     private static String findLine(String username) {
         try {
             if (Files.notExists(FILE)) return null;
@@ -73,6 +89,14 @@ public final class CredentialsFileService {
         return null;
     }
 
+    /**
+     * Dodaje jedan redak vjerodajnica na kraj datoteke.
+     *
+     * @param username       korisničko ime
+     * @param hashedPassword već hashirana lozinka
+     * @param role           uloga ("USER" ili "ADMIN")
+     * @throws IOException ako zapisivanje u datoteku ne uspije
+     */
     private static void appendLine(String username, String hashedPassword, String role) throws IOException {
         String line = username + SEPARATOR + hashedPassword + SEPARATOR + role;
         Files.writeString(FILE, line + System.lineSeparator(),

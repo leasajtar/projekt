@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 
+/** Kontroler ekrana za dodavanje nove vrste dogadaja, dostupan samo {@link org.example.entities.Admin}. */
 public class EventAddController {
 
     private static final Logger logger = LoggerFactory.getLogger(EventAddController.class);
@@ -22,6 +23,7 @@ public class EventAddController {
 
     private final ItemRepos itemRepo = new ItemRepos();
 
+    /**Obraduje klik na gumb za dodavanje.*/
     @FXML
     public void addEvent() {
         String name = safe(addEventNameInput.getText());
@@ -72,6 +74,10 @@ public class EventAddController {
         }
     }
 
+    /** Osigurava tocno unesen String.
+     * @param s tekst za obradu (može biti {@code null})
+     * @return obrezan tekst, ili prazan string ako je unos bio {@code null}
+     */
     private static String safe(String s) {
         return s == null ? "" : s.trim();
     }

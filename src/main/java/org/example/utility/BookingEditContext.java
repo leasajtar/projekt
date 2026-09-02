@@ -12,6 +12,7 @@ public final class BookingEditContext {
 
     private BookingEditContext() {}
 
+    /** @param booking rezervacija koju treba proslijediti ekranu za uređivanje */
     public static void edit(Booking booking) {
         bookingToEdit = booking;
     }

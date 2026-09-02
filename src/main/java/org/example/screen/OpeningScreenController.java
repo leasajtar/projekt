@@ -22,7 +22,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 
-
+/**Kontroler pocetnog ekrana. Virtualna nit dohvaca posljednju rezervaciju iz baze, a na zasebnoj,
+ * pozadinskoj niti, se ucitava katalog stavki {@link EntityCollection} sortiran po cijeni */
 public class OpeningScreenController {
 
     private static final Logger logger = LoggerFactory.getLogger(OpeningScreenController.class);
@@ -38,6 +39,7 @@ public class OpeningScreenController {
     private final DateTimeFormatter df = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     private final DateTimeFormatter tf = DateTimeFormatter.ofPattern("HH:mm");
 
+    /** Postavlja tablicu stavki, pokrece dohvat posljednje rezervacije i asinkrono ucitavanje kataloga. */
     @FXML
     public void initialize() {
         loadLatestBookingVirtualThread();
@@ -54,6 +56,8 @@ public class OpeningScreenController {
         loadItemsAsync();
     }
 
+    /** Ucitava sve stavke iz baze na pozadinskoj niti, slaze ih u
+     * {@link EntityCollection} i sortira po cijeni prije prikaza u tablici.*/
     private void loadItemsAsync() {
         Task<List<Item>> task = new Task<>() {
             @Override
@@ -79,6 +83,7 @@ public class OpeningScreenController {
         t.start();
     }
 
+    /** Dohvaca posljednju unesenu rezervaciju na virtualnoj niti i prikazuje je na oznaci. */
     private void loadLatestBookingVirtualThread() {
         Thread.ofVirtual().start(() -> {
             try {

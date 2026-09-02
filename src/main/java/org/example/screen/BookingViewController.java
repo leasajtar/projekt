@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import org.example.app.BookingApp;
 import org.example.entities.Booking;
 import org.example.entities.Person;
+import org.example.entities.User;
 import org.example.repos.BookingRepos;
 import org.example.utility.*;
 import org.slf4j.Logger;
@@ -15,6 +16,10 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+/** Kontroler ekrana za pregled rezervacija, prikazuje sve
+ * rezervacije {@link org.example.entities.Admin} ili samo vlastite {@link User}, uz filtriranje,
+ * uređivanje, brisanje (samo za {@link org.example.entities.Admin}) i ručnu izradu sigurnosne kopije.
+ */
 public class BookingViewController {
 
     private static final Logger logger = LoggerFactory.getLogger(BookingViewController.class);
@@ -37,6 +42,7 @@ public class BookingViewController {
 
     private final BookingRepos bookingRepos = new BookingRepos();
 
+    /** Postavlja filtre, sakriva admin-only gumbe za obične korisnike, i učitava rezervacije. */
     @FXML
     public void initialize() {
         boolean admin = Session.isAdmin();
@@ -62,6 +68,7 @@ public class BookingViewController {
     }
 
 
+    /** Povezuje stupce tablice s pomoćnim metodama iz {@link BookingViewUtil}. */
     private void setupTableColumns() {
         userColTab.setCellValueFactory(BookingViewUtil::userValue);
         eventColTab.setCellValueFactory(BookingViewUtil::eventValue);
@@ -71,7 +78,7 @@ public class BookingViewController {
     }
 
 
-
+    /** Učitava rezervacije iz baze, sve za {@link org.example.entities.Admin}, samo vlastite za {@link User}. */
     private void loadBookings() {
         try {
             Person current = Session.getCurrentPerson();
@@ -89,6 +96,7 @@ public class BookingViewController {
         }
     }
 
+    /** Filtrira prikazane rezervacije prema odabranom tipu i unesenoj vrijednosti. */
     @FXML
     private void handleFilter() {
         if (filterDropdown == null || filterInput == null) return;
@@ -106,6 +114,7 @@ public class BookingViewController {
         bookingTableView.setItems(filteredBookings);
     }
 
+    /** Ponistava aktivni filter i vraća prikaz svih (dohvacenih) rezervacija. */
     @FXML
     private void handleClearFilter() {
         if (filterDropdown != null) filterDropdown.setValue(null);
@@ -113,6 +122,7 @@ public class BookingViewController {
         bookingTableView.setItems(allBookings);
     }
 
+    /** Salje odabranu rezervaciju na ekran za uredivanje preko {@link BookingEditContext}. */
     @FXML
     private void handleEdit() {
         Booking selected = bookingTableView.getSelectionModel().getSelectedItem();
@@ -124,6 +134,7 @@ public class BookingViewController {
         BookingApp.showMainApp("BookingAdd.fxml");
     }
 
+    /** Brise odabranu rezervaciju nakon potvrde korisnika. */
     @FXML
     private void handleDelete() {
         Booking selected = bookingTableView.getSelectionModel().getSelectedItem();
@@ -143,10 +154,12 @@ public class BookingViewController {
         });
     }
 
+    /** Ponovno ucitava tablicu rezervacija. */
     public void refresh() {
         loadBookings();
     }
 
+    /** Pokrece asinkronu izradu sigurnosne kopije tablice rezervacija. */
     @FXML
     private void backupBookings() {
         BookingBackupService.backupNowAsync();

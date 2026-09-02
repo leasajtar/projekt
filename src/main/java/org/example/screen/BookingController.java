@@ -8,6 +8,7 @@ import org.example.entities.User;
 
 import java.util.List;
 
+/** Spremnik listi rezervacija, korisnika i stavki, dijeljen između JavaFX ekrana. */
 public class BookingController {
 
     private static final ObservableList<Booking> bookings =
@@ -19,8 +20,7 @@ public class BookingController {
     private static final ObservableList<Item> items =
             FXCollections.observableArrayList();
 
-    private BookingController() {
-    }
+    private BookingController() {}
 
     public static ObservableList<Booking> getBookings() {
         return bookings;

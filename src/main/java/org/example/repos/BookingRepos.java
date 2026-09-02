@@ -1,5 +1,6 @@
 package org.example.repos;
 
+import org.example.exceptions.DatabaseException;
 import org.example.utility.DbUtil;
 import org.example.entities.*;
 
@@ -7,6 +8,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Repozitorij klasa za povezivanje baze podataka rezervacija.
+ * */
 public class BookingRepos {
 
     private static final String SELECT_BASE = """
@@ -19,7 +24,12 @@ public class BookingRepos {
             JOIN items i ON i.id = b.item_id
             """;
 
-    public void insert(Booking b) {
+    /**Umetanje nove rezervacije u bazu
+     *
+     * @param b rezervacija
+     * @throws DatabaseException u slucaju greske sa bazom podataka
+     * */
+    public void insert(Booking b) throws DatabaseException {
         String sql = """
             INSERT INTO bookings(user_id, item_id, date, time, street, house, city)
             VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -37,24 +47,30 @@ public class BookingRepos {
 
             ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException("Failed to insert booking", e);
+            throw new DatabaseException("Failed to insert booking", e);
         }
     }
 
+    /**@return  sve rezervacije u bazi podataka od najnovije do najstarije*/
     public List<Booking> findAll() {
         return query(SELECT_BASE + " ORDER BY b.date DESC, b.time DESC", ps -> {});
     }
 
+    /**@param  userId identifikacijski broj korisnika
+     * @return sve rezervacije korisnika od najnovije do najstarije*/
     public List<Booking> findByUser(int userId) {
         return query(SELECT_BASE + " WHERE u.id = ? ORDER BY b.date DESC, b.time DESC",
                 ps -> ps.setInt(1, userId));
     }
 
+    /** @return najnovija rezervacija*/
     public Booking findLatest() {
         List<Booking> result = query(SELECT_BASE + " ORDER BY b.id DESC LIMIT 1", ps -> {});
         return result.isEmpty() ? null : result.get(0);
     }
 
+    /**Brise rezervaciju pod unesenim identifikacijskom broju
+     * @param bookingId identifikacijski broj rezervacije */
     public void delete(long bookingId) {
         String sql = "DELETE FROM bookings WHERE id = ?";
         try (Connection c = DbUtil.getConnection();
@@ -66,6 +82,13 @@ public class BookingRepos {
         }
     }
 
+
+    /** Azurira podatke rezervacije u bazi podataka
+     * @param bookingId     identifikacijski broj rezervacije
+     * @param date          datum rezervacije
+     * @param location      lokacija rezervacije
+     * @param time          vrijeme rezervacije
+     * */
     public void update(long bookingId, java.time.LocalDate date, java.time.LocalTime time, Location location) {
         String sql = "UPDATE bookings SET date = ?, time = ?, street = ?, city = ? WHERE id = ?";
         try (Connection c = DbUtil.getConnection();
@@ -81,11 +104,23 @@ public class BookingRepos {
         }
     }
 
+    /** Funkcionalno sučelje za povezivanje parametara na {@link PreparedStatement} prije izvršavanja upita. */
     @FunctionalInterface
     private interface Binder {
+        /**
+         * Postavlja parametre pripremljene naredbe.
+         * @param ps pripremljena naredba na koju treba povezati parametre
+         * @throws SQLException ako povezivanje parametara ne uspije
+         */
         void bind(PreparedStatement ps) throws SQLException;
     }
 
+    /** Izvrsava SQL upit i mapira rezultat u listu.
+     *
+     * @param sql SQL upit
+     * @param binder povezuje dodatne parametre na upit
+     * @return rezultat upita, mapiran u listu
+     * */
     private List<Booking> query(String sql, Binder binder) {
         try (Connection c = DbUtil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
@@ -102,6 +137,13 @@ public class BookingRepos {
         }
     }
 
+    /**
+     * Mapira jedan redak rezultata upita u {@link Booking} objekt.
+     *
+     * @param rs redak rezultata upita
+     * @return mapirana rezervacija
+     * @throws SQLException ako čitanje stupaca ne uspije
+     */
     private Booking mapRow(ResultSet rs) throws SQLException {
         User user = new User.UserBuilder(
                 rs.getInt("user_id"), rs.getString("username"), rs.getString("password"))
@@ -125,6 +167,10 @@ public class BookingRepos {
         return booking;
     }
 
+    /**
+     * Ažurira postojeću rezervaciju.
+     * @param b rezervacija s ažuriranim podacima
+     */
     public void update(Booking b) {
         String sql = """
             UPDATE bookings

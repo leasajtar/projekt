@@ -9,6 +9,7 @@ import org.example.repos.UserRepos;
 import org.example.utility.CredentialsFileService;
 import org.example.utility.Session;
 
+/**Kontroler ekrana za prijavu. Sadrzi metode validacije podataka korisnika i povezivanja s bazom podataka.*/
 public class LoginController {
 
     @FXML private TextField usernameInput;
@@ -18,6 +19,9 @@ public class LoginController {
 
     private final UserRepos userRepo = new UserRepos();
 
+    /**Obrada pokusaja ulogiravanja korisnika. Provjerava ispravnost unesenih podataka i provjerava
+     * je li korisnik {@link Admin} ili {@link org.example.entities.User}, postavlja sesiju i prebacuje
+     * na glavni ekran prema ulozi*/
     @FXML
     private void handleLogin() {
         String username = usernameInput.getText() == null ? "" : usernameInput.getText().trim();

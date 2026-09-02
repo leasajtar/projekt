@@ -17,6 +17,7 @@ module org.example.projekt {
     requires java.sql;
     requires javafx.base;
 
+
     opens org.example to javafx.fxml;
     exports org.example.entities;
     opens org.example.entities to jakarta.json.bind, org.eclipse.yasson;

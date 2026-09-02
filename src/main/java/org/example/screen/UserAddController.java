@@ -11,6 +11,8 @@ import org.example.repos.UserRepos;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**Kontroler ekrana za dodavanje korisnik koji je dostupan samo {@link org.example.entities.Admin}.
+ * Novi korisnik se sprema u bazu i u {@code credentials.txt} kako bi se odmah mogao prijaviti.*/
 public class UserAddController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserAddController.class);
@@ -23,6 +25,7 @@ public class UserAddController {
 
     private final UserRepos userRepo = new UserRepos();
 
+    /**Obraduje klik na gumb dodavanje, validira sva polja i sprema korisnika u bazu i tekstualnu datoteku.*/
     @FXML
     public void addUser() {
         String username = safe(usernameAdd.getText());
@@ -81,6 +84,10 @@ public class UserAddController {
         }
     }
 
+    /**
+     * @param s tekst za obradu (može biti {@code null})
+     * @return obrezan tekst, ili prazan string ako je unos bio {@code null}
+     */
     private static String safe(String s) {
         return s == null ? "" : s.trim();
     }

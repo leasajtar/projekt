@@ -43,9 +43,7 @@ public class Record implements Serializable {
         return booking.eventType.getPrice();
     }
 
-    public String getBookingBand(){
-        return getBookingBand();
-    }
+    public String getBookingBand(){ return booking.getBand().toString(); }
 
     public static LocalDate getBookingDate() {
         return bookingDate;

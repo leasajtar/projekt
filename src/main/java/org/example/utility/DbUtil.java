@@ -8,7 +8,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-
+/**
+ * Središnja klasa za pristup bazi podataka: čita postavke veze iz
+ * {@code database.properties}, otvara konekcije, i inicijalizira
+ * potrebne tablice ({@code users}, {@code items}, {@code bookings}) pri
+ * prvom pokretanju aplikacije.
+ */
 public final class DbUtil {
 
     private static final Properties properties = new Properties();
@@ -35,6 +40,15 @@ public final class DbUtil {
 
     private DbUtil() {}
 
+    /**
+     * Otvara novu konekciju prema bazi, koristeći URL/korisnika/lozinku
+     * učitane iz {@code database.properties}. Pozivatelj je odgovoran
+     * za zatvaranje konekcije (preporučeno kroz try-with-resources).
+     *
+     * @return nova otvorena konekcija
+     * @throws SQLException          ako otvaranje konekcije ne uspije
+     * @throws IllegalStateException ako {@code db.url} nedostaje u postavkama
+     */
     public static Connection getConnection() throws SQLException {
         String url = properties.getProperty("db.url");
         String user = properties.getProperty("db.user");
@@ -53,6 +67,13 @@ public final class DbUtil {
         );
     }
 
+    /**
+     * Stvara tablice {@code users}, {@code items} i {@code bookings} ako još
+     * ne postoje, dodaje stupac {@code role} ako nedostaje (za baze stvorene
+     * prije njegovog uvođenja), i zasijava zadani admin račun.
+     *
+     * @throws RuntimeException ako inicijalizacija baze ne uspije
+     */
     public static void init() {
         try (Connection c = getConnection(); Statement s = c.createStatement()) {
 

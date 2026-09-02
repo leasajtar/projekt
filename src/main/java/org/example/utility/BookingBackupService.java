@@ -11,6 +11,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**Izraduje sigurnosnu kopiju tablice rezervacija.*/
 public final class BookingBackupService {
 
     private static final Logger logger = LoggerFactory.getLogger(BookingBackupService.class);
@@ -23,6 +24,7 @@ public final class BookingBackupService {
 
     private BookingBackupService() {}
 
+    /**Pokrece izradu sigurnosne kpije na virtualnoj niti.*/
     public static void backupNowAsync() {
         Thread.ofVirtual().start(() -> {
             if (!running.compareAndSet(false, true)) return;
@@ -38,6 +40,8 @@ public final class BookingBackupService {
         });
     }
 
+    /**Pokrece automatsku izradu sigurnosne kopije na zasebnoj dretvi rasporeda.
+     * @param seconds razmak izmedu automatskih kopija */
     public static void startAutoBackup(long seconds) {
         if (scheduler != null && !scheduler.isShutdown()) return;
 
@@ -55,6 +59,7 @@ public final class BookingBackupService {
         );
     }
 
+    /**Zaustavlja automatsku izradu sigurnosne kopije, ako je pokrenuta.*/
     public static void stopAutoBackup() {
         if (scheduler != null) {
             scheduler.shutdownNow();
@@ -62,6 +67,9 @@ public final class BookingBackupService {
         }
     }
 
+    /**Izvrsava jednu izradu sigurnosne kopije.
+     * @throws SQLException ukoliko ne uspije neki SQL korak
+     * */
     private static void backupOnce() throws SQLException {
         try (Connection c = DbUtil.getConnection();
              Statement st = c.createStatement()) {

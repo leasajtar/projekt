@@ -8,8 +8,15 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Repozitorij klasa za povezivanje baze podataka korisnika.
+ *  */
 public class UserRepos {
 
+    /** Provjerava postoji li korisnik u bazi podataka
+     * @param username ime korisnika
+     * @return {@code true} ako postoji korisnik s istim imenom
+     * */
     public boolean usernameExists(String username) {
         String sql = "SELECT 1 FROM users WHERE LOWER(username) = LOWER(?)";
         try (Connection c = DbUtil.getConnection();
@@ -24,7 +31,12 @@ public class UserRepos {
         }
     }
 
-    public long insert(User u) {
+    /**Unos korisnika u bazu podataka.
+     * @param u objekt korisnika
+     * @return identifikacijski broj korisnika u bazi
+     * @throws DatabaseException baca iznimku ukoliko ne uspije upisati korisnika u bazu podataka
+     * */
+    public long insert(User u) throws DatabaseException {
         String sql = "INSERT INTO users(username, password, email, phone, role) VALUES(?,?,?,?,'USER')";
         try (Connection c = DbUtil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -46,11 +58,11 @@ public class UserRepos {
             throw new DatabaseException("No generated key returned for users insert");
 
         } catch (SQLException e) {
-            throw new RuntimeException("Failed to insert user", e);
+            throw new DatabaseException("Failed to insert user", e);
         }
     }
 
-    /** Vraća samo obične korisnike — koristi se za dropdown pri rezervaciji. */
+    /** Vraća samo obične korisnike, koristi se za dropdown pri rezervaciji. */
     public List<User> findAll() {
         String sql = "SELECT id, username, password, email, phone FROM users WHERE role = 'USER' ORDER BY username";
         try (Connection c = DbUtil.getConnection();
@@ -87,6 +99,11 @@ public class UserRepos {
         }
     }
 
+    /** Mapira jedan redak rezultata upita u {@link User objekt}
+     * @param rs redak rezultaka upita
+     * @return mapirani korisnik
+     * @throws SQLException ako citanje stupaca ne uspije
+     * */
     private User mapUser(ResultSet rs) throws SQLException {
         return new User.UserBuilder(
                 rs.getInt("id"),

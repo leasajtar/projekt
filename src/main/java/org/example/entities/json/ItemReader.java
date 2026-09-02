@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -51,8 +50,9 @@ public class ItemReader {
     public static List<Item> readItems() {
         JsonbConfig config = new JsonbConfig()
                 .withFormatting(true);
-        try(Jsonb jsonb = JsonbBuilder.create(config);) {
-            return jsonb.fromJson((Reader) jsonb,ArrayList.class);
+        try(BufferedReader itemPath = Files.newBufferedReader(JSON_LISTA);
+                Jsonb jsonb = JsonbBuilder.create(config);) {
+            return jsonb.fromJson(itemPath,ArrayList.class);
 
         } catch (Exception e) {
             LOGGER.error("Error reading items", e);

@@ -15,13 +15,15 @@ import org.example.utility.BookingEditContext;
 import org.example.utility.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/** Kontroler ekrana za dodavanje nove rezervacije ili uređivanje postojeće
+ * (BookingAdd.fxml). Obični korisnici mogu rezervirati samo za sebe (padajući
+ * izbornik korisnika je zaključan na trenutno prijavljenu osobu); administratori
+ * mogu birati bilo kojeg korisnika.*/
 public class AddBookingController {
-
     private static final Logger logger = LoggerFactory.getLogger(AddBookingController.class);
 
     @FXML private ComboBox<User> userDropdown;
@@ -51,6 +53,8 @@ public class AddBookingController {
     private Booking editingBooking;
     private boolean admin;
 
+    /** Postavlja padajuće izbornike (korisnik/događaj/grad/vrijeme), tablične stupce,
+     * i po potrebi unaprijed popunjava formu ako se uređuje postojeća rezervacija. */
     @FXML
     public void initialize() {
         logger.info("Initializing AddBookingController");
@@ -99,17 +103,14 @@ public class AddBookingController {
                 d.getValue().getLocation().adress() + ", " + d.getValue().getLocation().city()));
 
         editingBooking = BookingEditContext.consume();
-        if (editingBooking != null) {
-            prefillForEdit(editingBooking);
-        }
-
+        if (editingBooking != null) prefillForEdit(editingBooking);
         reloadBookingsTable();
     }
 
+    /** Popunjava formu podacima rezervacije koja se uređuje i mijenja natpis gumba u "Update Booking".
+     * @param b rezervacija koja se uređuje*/
     private void prefillForEdit(Booking b) {
-        if (admin && b.getUser() != null) {
-            userDropdown.setValue(b.getUser());
-        }
+        if (admin && b.getUser() != null) userDropdown.setValue(b.getUser());
         eventDropdown.setValue(b.getEventType());
         if (b.getLocation() != null) {
             cityDropdown.setValue(b.getLocation().city());
@@ -120,11 +121,9 @@ public class AddBookingController {
             hourDropdown.setValue(b.getTime().getHour());
             minuteDropdown.setValue(b.getTime().getMinute());
         }
-        if (addBookingBtn != null) {
-            addBookingBtn.setText("Update Booking");
-        }
+        if (addBookingBtn != null) addBookingBtn.setText("Update Booking");
     }
-
+    /** Ponovno učitava tablicu rezervacija — sve za administratora, samo vlastite za obično korisnika. */
     private void reloadBookingsTable() {
         List<Booking> bookings = Session.isAdmin()
                 ? bookingRepo.findAll()
@@ -133,6 +132,9 @@ public class AddBookingController {
         logger.info("Booking table updated");
     }
 
+    /** Provjerava da datum rezervacije nije u prošlosti.
+     * @param date datum koji treba provjeriti
+     * @throws InvalidBookingException ako je datum prije današnjeg*/
     private void validateBooking(LocalDate date) throws InvalidBookingException {
         Clock clock = Clock.systemDefaultZone();
         if (date.isBefore(LocalDate.now(clock))) {
@@ -141,6 +143,8 @@ public class AddBookingController {
         logger.info("Booking validated");
     }
 
+    /** Obrađuje klik na gumb za spremanje: validira unos, te ovisno o stanju
+     * ili umeće novu rezervaciju ili ažurira postojeću (ako se uređuje).*/
     @FXML
     private void handleAddBooking() {
         if (userDropdown.getValue() == null || eventDropdown.getValue() == null || cityDropdown.getValue() == null ||
@@ -172,30 +176,25 @@ public class AddBookingController {
                 bookingRepo.update(editingBooking);
             } else {
                 Booking booking = new Booking(userDropdown.getValue(), date, time, eventDropdown.getValue(), location, null);
-                bookingRepo.insert(booking);
-            }
+                bookingRepo.insert(booking);}
         } catch (Exception e) {
             logger.error("Failed to save booking", e);
             new Alert(Alert.AlertType.ERROR, "Failed to save booking: " + e.getMessage()).showAndWait();
-            return;
-        }
+            return;}
 
         if (editingBooking != null) {
             logger.info("Booking updated successfully");
             new Alert(Alert.AlertType.INFORMATION, "Booking updated!").showAndWait();
             editingBooking = null;
             BookingApp.showMainApp("Booking.fxml");
-            return;
-        }
+            return;}
 
         new Alert(Alert.AlertType.INFORMATION, "Booking saved!").showAndWait();
-        try {
-            reloadBookingsTable();
-        } catch (Exception e) {
+        try { reloadBookingsTable();}
+        catch (Exception e) {
             logger.error("Booking was saved, but the table could not be refreshed", e);
-            new Alert(Alert.AlertType.WARNING,
-                    "Booking was saved, but the table couldn't be refreshed automatically. " +
-                            "Reopen this screen to see it.").showAndWait();
+            new Alert(Alert.AlertType.WARNING, "Booking was saved, but the table couldn't be " +
+                    "refreshed automatically. " + "Reopen this screen to see it.").showAndWait();
         }
     }
 }

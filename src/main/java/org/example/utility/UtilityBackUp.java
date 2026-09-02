@@ -12,10 +12,19 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.Set;
 
+/** Serijalizira/deserijalizira cjelokupno stanje aplikacije u/iz binarne datoteke {@code backup.bin}. */
 public class UtilityBackUp {
     private UtilityBackUp(){}
     private static final Logger logger = LoggerFactory.getLogger(UtilityBackUp.class);
 
+    /**
+     * Slaže dane podatke u {@link BackupData} i serijalizira ih u {@code backup.bin}.
+     *
+     * @param users    korisnici koje treba spremiti
+     * @param bookings rezervacije koje treba spremiti
+     * @param records  zapisi (povijest) koje treba spremiti
+     * @param items    stavke koje treba spremiti
+     */
     public static void saveBackup(List<User> users,
                                   List<Booking> bookings,
                                   Set<Record> records,
@@ -30,6 +39,11 @@ public class UtilityBackUp {
         }
     }
 
+    /**
+     * Deserijalizira sadržaj {@code backup.bin}.
+     *
+     * @return učitani {@link BackupData}, ili {@code null} ako datoteka ne postoji ili dođe do greške
+     */
     public static BackupData loadBackup() {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("backup.bin"))) {
             BackupData data = (BackupData) in.readObject();

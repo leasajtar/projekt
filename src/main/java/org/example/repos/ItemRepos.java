@@ -11,10 +11,16 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Repozitorij klasa za povezivanje baze podataka dogadanja.
+ * */
 public class ItemRepos {
     public static final Logger log = LoggerFactory.getLogger(ItemRepos.class);
 
-
+    /**Provjerava postojanje tipa dogadanja u bazi podataka
+     * @param eventType naziv tipa dogadanja
+     * @return {@code true} ako stavka postoji, uprotivnom {@code false}
+     * */
     public boolean eventExists(String eventType) {
         String sql = "SELECT 1 FROM items WHERE LOWER(event_type) = LOWER(?)";
         try (Connection c = DbUtil.getConnection();
@@ -29,6 +35,11 @@ public class ItemRepos {
         }
     }
 
+    /**Umetanje tipa dogadaja u bazu pdataka
+     * @param item tip dogadaja
+     * @return identifikacijski broj dogadanja u bazi
+     * @throws DatabaseException u slucaju da se ne vrati generirani kljuc
+     * */
     public long insert(Item item) {
         String sql = "INSERT INTO items(event_type, price) VALUES(?, ?)";
         try (Connection c = DbUtil.getConnection();
@@ -55,6 +66,7 @@ public class ItemRepos {
         }
     }
 
+    /**@return vraca sve stavke baze podataka*/
     public List<Item> findAll() {
         String sql = "SELECT id, event_type, price FROM items ORDER BY event_type";
         try (Connection c = DbUtil.getConnection();
